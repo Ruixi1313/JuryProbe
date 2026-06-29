@@ -1,123 +1,191 @@
 # JuryProbe
 
-JuryProbe tests whether LLM judges behave like independent voters. We measure
-inter-judge error correlation, false consensus, and the effect of sequential
-cascading on correlation.
+JuryProbe is a consensus-risk guardrail for reference-free factuality judge
+panels. It tests when agreement among inexpensive LLM judges should be treated
+as reliable evidence, and when high-risk accept decisions should be routed to
+grounded verification with trusted references.
 
-**Thesis (Day 1):** *Agreement is not independence.* If LLM judges' errors are
-correlated, classical jury-theorem guarantees (Condorcet, wisdom of crowds)
-do not apply, and the marginal value of additional judges drops faster than
-independence theory predicts.
+The project supports the paper:
 
-## Core Contributions (target paper)
+**JuryProbe: A Consensus-Risk Guardrail for Reference-Free Factuality Judge
+Panels**
 
-1. First systematic measurement of inter-judge error correlation across
-   multiple LLM families and task types.
-2. Quantification of correlation growth across cascade depth in sequential
-   vs. independent designs.
-3. A corrected expected-accuracy formula for LLM-as-Judge ensembles that
-   accounts for empirical error correlation.
+## Overview
 
-## Project Layout
+JuryProbe studies a failure mode in model-based factuality evaluation:
+reference-free judge panels can unanimously accept corrupted claims when their
+false-negative errors are correlated. The project measures this risk using:
 
-```
-JuryProbe/
-├── requirements.txt
-├── .env.template
-├── .gitignore
-├── README.md
-├── src/
-│   ├── judges.py            # OpenRouter judge wrappers
-│   ├── correlation.py       # accuracy / error vectors / Pearson / false consensus
-│   └── io_utils.py          # jsonl IO and raw-call disk cache
-├── scripts/
-│   └── day1_sanity.py       # 30 pairs × 3 judges × {independent, sequential}
-├── data/
-│   └── sample_pairs_30.jsonl   # demo benchmark (gitignored)
-└── results/
-    ├── raw_outputs.jsonl    # every judge call cached for reproducibility
-    ├── error_vectors.csv    # per-item binary error vector for each judge
-    └── summary.json         # standardized run summary
-```
+- **FN-only correlation**, which measures dependence among judge failures.
+- **False-consensus lift**, which measures excess unanimous false acceptance
+  relative to an independent-error baseline.
+- **Grounding collapse**, which tests whether the same judge panel stops
+  producing false consensus when trusted references are provided.
+- **JuryProbe-Routed**, a held-out guardrail policy that routes high-risk
+  reference-free majority accepts to grounded verification.
 
-## Artifact Manifests
+The main confirmatory analyses use audited **Number** and **Entity** corruption
+families. **Attribute** is retained as a replication family, and **Relation**
+was excluded before main judge evaluation because audits identified unstable
+construction artifacts.
 
-Pool manifests, build manifests, and evaluation manifests are tracked separately.
-
-Pool manifests record the source frame, pool sizes, attrition, strata counts,
-and fixed seed. Build manifests record accepted/rejected examples, reject
-reasons, construction rules, and post-filter/audit versions. Evaluation
-manifests record grounded verifier details, raw/retried/final `parse_fail`
-counts, and whether oracle or gold-label fallback was used.
+## Repository Layout
 
 ```text
-Construction
-├── pool_freeze
-└── build_freeze
-
-Evaluation
-├── evaluation
-└── evaluation_cache_validation
+JuryProbe/
+├── src/                    # Core judge and correlation utilities
+├── scripts/                # Data construction, judging, analysis, and policy evaluation
+├── docs/                   # Method notes, policy definitions, and table sources
+├── audits/                 # Author audit records for corruption-family construction
+├── frozen/                 # Frozen manifests and audit summaries for reported artifacts
+├── results/                # Tracked summary markdown files only
+├── .env.template           # Local API-key template; copy to .env
+└── requirements.txt
 ```
+
+Large or sensitive artifacts are intentionally not tracked:
+
+- `.env` and other local secrets
+- raw FEVER-derived datasets in `data/`
+- raw model outputs and large JSON/JSONL result files in `results/`
+- temporary working directories in `tmp/`
+- submission PDFs/ZIPs and local reference PDFs
 
 ## Setup
 
+Create a local environment and install dependencies:
+
 ```bash
-cd path/to/JuryProbe
-cp .env.template .env          # then add OPENROUTER_API_KEY
-python3 -m venv .venv && source .venv/bin/activate
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Day 1 Sanity Check
+Copy the environment template and add your OpenRouter key locally:
 
 ```bash
-python scripts/day1_sanity.py
+cp .env.template .env
 ```
 
-Pass criteria (all must hold on the independent pass):
+The `.env` file is ignored by git. Do not commit real API keys.
 
-- mean accuracy > 60%
-- mean error correlation > 0.05
-- any pair correlation > 0.10
-- false consensus rate > 5%
-- sequential correlation > independent correlation (bonus)
+## Main Workflow
 
-Expected runtime: ~3-5 minutes. Expected cost: ~$0.50.
+The full project was run as a frozen, staged pipeline. The scripts are kept in
+the repository so the construction and evaluation logic can be inspected and
+rerun locally when the required data and API access are available.
 
-Reruns are free: every judge call is written to `results/raw_outputs.jsonl`
-and re-used on subsequent invocations.
+### 1. Build FEVER claim pools
 
-## summary.json Schema
-
-```json
-{
-  "n_examples": 30,
-  "judges": ["model_a", "model_b", "model_c"],
-  "independent": {
-    "accuracy_by_judge": {"...": 0.0},
-    "error_corr_labels": ["..."],
-    "error_corr_matrix": [[1.0]],
-    "avg_pairwise_correlation": 0.0,
-    "max_pairwise_correlation": 0.0,
-    "false_consensus_rate": 0.0
-  },
-  "sequential": {
-    "accuracy_by_stage": {"...": 0.0},
-    "error_corr_labels": ["..."],
-    "error_corr_matrix": [[1.0]],
-    "avg_pairwise_correlation": 0.0,
-    "false_consensus_rate": 0.0
-  },
-  "pass_criteria": {"...": true},
-  "pass": true
-}
+```bash
+python scripts/build_fever_claim_pool.py --seed 42
 ```
 
-## Pivot Plan
+This constructs fixed FEVER-supported claim pools for downstream corruption
+families. Pool construction uses local, pre-specified filters; GPT-4o is not
+used to select the initial pool.
 
-If correlation stays low across larger benchmarks, the thesis is unstable.
-Re-use the same `raw_outputs.jsonl` for a calibration study instead of
-restarting from zero.
+### 2. Construct corruption-family datasets
 
-Working title for the pivot: *LLM Judge Calibration under Task Difficulty.*
+Representative builders:
+
+```bash
+python scripts/build_number_from_pool.py
+python scripts/build_entity_from_pool.py
+python scripts/build_attribute_from_pool.py
+python scripts/build_relation_from_pool.py
+```
+
+Number and Entity are the confirmatory families used for the main
+consensus-risk, grounding-collapse, and guardrail-policy evaluations. Attribute
+is used as replication evidence. Relation was explored but excluded from main
+evaluation after audit.
+
+### 3. Run reference-free and grounded judging
+
+Reference-free judging evaluates each claim without a trusted reference.
+Grounded verification evaluates the same claim with a trusted reference using
+the same judge panel. The relevant judge wrapper is in:
+
+```text
+src/judges.py
+```
+
+The main judge panel consists of:
+
+- Llama-3.1-8B-Instruct
+- Qwen-2.5-7B-Instruct
+- Gemma-3-12B-IT
+
+### 4. Estimate consensus risk
+
+Consensus risk is estimated from corrupted calibration items using FN-only
+correlation, false-consensus lift, and a permutation-test p-value. Core
+utilities are in:
+
+```text
+src/correlation.py
+scripts/analyze_dataset.py
+scripts/analyze_residual.py
+```
+
+### 5. Evaluate JuryProbe-Routed
+
+The held-out policy evaluation separates risk estimation from deployment
+evaluation. Risk is estimated on calibration splits, and policies are evaluated
+on held-out deployment splits.
+
+```bash
+python scripts/evaluate_guardrail_multiseed.py
+```
+
+The evaluated policies include:
+
+- Reference-Free Majority
+- Reference-Free Unanimity
+- Disagreement-Routed
+- Random-Routed
+- JuryProbe-Routed
+- Always Grounded
+
+Tracked summary tables are stored as markdown files under `results/`.
+
+### 6. Robustness checks
+
+Additional checks include threshold sensitivity, grounded specificity,
+random-routing stability, grounded evaluation integrity, Attribute replication,
+and a capability-varied judge-panel slice.
+
+Representative scripts:
+
+```text
+scripts/analyze_guardrail_robustness.py
+scripts/evaluate_low_risk_specificity.py
+scripts/evaluate_strong_judge_slice.py
+scripts/validate_grounded_cache.py
+```
+
+## Frozen Artifacts
+
+The `frozen/` directory records the manifests and audit summaries used to
+support the reported paper results. These files are intended as lightweight,
+reviewable records of what was frozen before downstream evaluation.
+
+The raw datasets and raw model outputs are not included in git by default
+because they are large and may contain cached model responses. The tracked
+markdown summaries in `results/` provide the reported aggregate tables.
+
+## Security Notes
+
+- Real API keys belong only in local `.env` files.
+- `.env`, raw datasets, raw model outputs, and temporary workspaces are ignored.
+- The repository reads `OPENROUTER_API_KEY` from the environment; keys are not
+  hard-coded in source files.
+
+## Minimal Verification
+
+To check that the tracked Python files parse:
+
+```bash
+python3 -m py_compile src/*.py scripts/*.py
+```
