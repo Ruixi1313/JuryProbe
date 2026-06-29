@@ -1,0 +1,24 @@
+{
+  "artifact_type": "robustness_evaluation",
+  "stage": "evaluation",
+  "version": "guardrail_robustness_v1",
+  "created": "2026-06-10",
+  "description": "Frozen no-API robustness analyses for JuryProbe guardrail evaluation.",
+  "inputs": [
+    "results/frozen/guardrail_heldout_multiseed/summary.json",
+    "results/frozen/guardrail_baselines_v1/summary.json",
+    "results/frozen/low_risk_specificity_v1/summary.json",
+    "results/frozen/number_v3/number_corruption_pool_v3_n300_rf.jsonl",
+    "results/frozen/v4/entity_corruption_pool_v4_n300_rf.jsonl"
+  ],
+  "outputs": [
+    "results/frozen/guardrail_robustness_v1/summary.json",
+    "results/frozen/guardrail_robustness_v1/summary.md"
+  ],
+  "oracle_used": false,
+  "gold_fallback_used": false,
+  "model_api_calls_made": 0,
+  "affects_main_policy": false,
+  "affects_risk_thresholds": false,
+  "affects_routing_logic": false
+}

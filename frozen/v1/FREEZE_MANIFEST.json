@@ -1,0 +1,36 @@
+{
+  "freeze_version": "v1",
+  "frozen_at_local_date": "2026-06-08",
+  "policy": {
+    "status": "frozen",
+    "do_not_overwrite": true,
+    "future_changes": "Create v2/v3 artifacts instead of modifying v1.",
+    "source_frame": "All future v1 results should use the frozen v1 source frame unless explicitly labeled as a new version."
+  },
+  "source_frame": {
+    "master_claim_pool_v1": "data/frozen/v1/master_claim_pool_v1.jsonl",
+    "number_pool_v1": "data/frozen/v1/number_pool_v1.jsonl",
+    "entity_pool_v1": "data/frozen/v1/entity_pool_v1.jsonl",
+    "relation_pool_v1": "data/frozen/v1/relation_pool_v1.jsonl",
+    "pool_manifest_v1": "data/frozen/v1/pool_manifest_v1.json"
+  },
+  "entity_dataset": {
+    "dataset": "data/frozen/v1/entity_corruption_pool_v1_n300.jsonl",
+    "attempt_log": "results/frozen/v1/entity_corruption_pool_v1_n300_build_attempts.jsonl",
+    "build_manifest": "results/frozen/v1/entity_corruption_pool_v1_n300_build_manifest.json"
+  },
+  "sha256": {
+    "data/frozen/v1/entity_corruption_pool_v1_n300.jsonl": "1cd0161adeaa33a95f933c8b53bec3914ff8b0383077e32d4f772e34dde0356d",
+    "data/frozen/v1/entity_pool_v1.jsonl": "8cc1d5fced4c65582900d7bcc25639709c6a726d8f46ad5b76592f409ce5f502",
+    "data/frozen/v1/master_claim_pool_v1.jsonl": "6b2e1bc65eab02eeb0c16e9a8c4bce22c4cbc5ef0930c0083924a3bdd2fb07f5",
+    "data/frozen/v1/number_pool_v1.jsonl": "7a205592ed1a5083f1bcec1cc3d3241eda6d26311dc38d408c11e9ab1c96d89b",
+    "data/frozen/v1/pool_manifest_v1.json": "ad191237e6e4265ce53cc510d132b1c2eafafcffda447ead4d930872f92ad7a3",
+    "data/frozen/v1/relation_pool_v1.jsonl": "cd00afc4185de6a0ddd8405d5491342dc7c2b75515e7e5359953ca107e863589",
+    "results/frozen/v1/entity_corruption_pool_v1_n300_build_attempts.jsonl": "9325d5dd2a30a1b2b6a83994b21e84dc3fcd8009b20cf2650de6729f0607419b",
+    "results/frozen/v1/entity_corruption_pool_v1_n300_build_manifest.json": "a9b50bdf1ecf0028bb7122de1a34565776d0e175fd0157a8c1cdfe090b52cc05"
+  },
+  "manifest_type": "pool_freeze",
+  "manifest_policy": "Pool manifests, build manifests, and evaluation manifests are tracked separately.",
+  "artifact_type": "pool_freeze",
+  "stage": "construction"
+}

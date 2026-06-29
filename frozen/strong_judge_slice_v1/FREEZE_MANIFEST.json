@@ -1,0 +1,151 @@
+{
+  "artifact_type": "robustness_evaluation",
+  "stage": "evaluation",
+  "manifest_type": "robustness_evaluation",
+  "manifest_policy": "Pool manifests, build manifests, and evaluation manifests are tracked separately.",
+  "freeze_version": "strong_judge_slice_v1",
+  "freeze_date": "2026-06-09",
+  "status": "complete",
+  "purpose": "Supplementary robustness analysis plan for testing whether stronger reference-free judges reduce false consensus risk.",
+  "primary_question": "Do stronger reference-free judges reduce false consensus risk?",
+  "primary_slice": {
+    "family": "number",
+    "dataset": "data/frozen/number_v3/number_corruption_pool_v3_n300.jsonl",
+    "n_clean": 300,
+    "n_corrupt": 300,
+    "selection_rationale": "Number is selected as the primary capability slice because it exhibits a substantially higher false-consensus event rate, providing greater statistical power for detecting capacity-dependent effects."
+  },
+  "optional_extension": {
+    "family": "entity",
+    "rationale": "Entity is reserved as an optional cross-family validation slice and will only be executed if additional robustness analysis is required."
+  },
+  "metrics": [
+    "FN-only correlation",
+    "false-consensus rate",
+    "false-consensus lift",
+    "RF majority false accept rate",
+    "per-judge FN rate"
+  ],
+  "success_criteria": {
+    "threshold_used": false,
+    "statement": "No threshold is used to declare success or failure. All outcomes are considered informative."
+  },
+  "interpretation_rules": {
+    "risk_decreases_with_capability": "Evidence for capability-dependent risk.",
+    "risk_remains_high": "Evidence that stronger reference-free judges do not eliminate the problem.",
+    "mixed": "Report as inconclusive."
+  },
+  "non_use_constraints": [
+    "Does not affect risk threshold selection.",
+    "Does not affect policy definition.",
+    "Does not affect routing logic.",
+    "Does not affect main results."
+  ],
+  "files": {
+    "docs/strong_judge_slice_plan.md": {
+      "sha256": "5fcb831a8038797da05fe332a9bc90b548bba0dc0609d0818ad85374c3eace3c",
+      "bytes": 2578
+    },
+    "frozen/strong_judge_slice_v1/README.md": {
+      "sha256": "10241bb4a7b759832e213539f1b5fcfbe9e6d5827c715dc51cfd7d6dd20a6f57",
+      "bytes": 2387
+    },
+    "data/frozen/number_v3/number_corruption_pool_v3_n300.jsonl": {
+      "sha256": "84e4132aa106e6d837bb8c0cc62ae936e8bf5a2f9fa6efaa10ac2a366ec50251",
+      "bytes": 283009
+    },
+    "scripts/evaluate_strong_judge_slice.py": {
+      "sha256": "c6ca8d3e0366e7033b52bb24442e55818a098b3a6a8225b9cdde0bb8bd17995f",
+      "bytes": 18360
+    },
+    "results/frozen/strong_judge_slice_v1/number_v3_capability_rf.jsonl": {
+      "sha256": "897c6f5d7def5a6926132ad7c6a6db0976655f94b21ba32087e047b9bfe16341",
+      "bytes": 289645
+    },
+    "results/frozen/strong_judge_slice_v1/summary.json": {
+      "sha256": "7799fdbd6c9567cf3d1c7a468ad8609544a23b3d695a0c7f8b66daee1ecedff6",
+      "bytes": 4112
+    },
+    "results/frozen/strong_judge_slice_v1/summary.md": {
+      "sha256": "5d00b21bdef81f714e8443ca06f80383d7a512da7504aadfcc2ae02f3802d8fe",
+      "bytes": 744
+    },
+    "results/frozen/strong_judge_slice_v1/failed_preflight_qwen_2_5_32b.jsonl": {
+      "sha256": "8a104517bd9a9b778e39abc4adb003c8d70900b8357e7f2228b62d053ff6bcc5",
+      "bytes": 243
+    }
+  },
+  "primary_table_inclusion": false,
+  "reporting_role": "Robustness evidence only; not included in primary guardrail evaluation tables.",
+  "judge_pool": {
+    "capability_slice": [
+      "meta-llama/llama-3.1-8b-instruct",
+      "google/gemma-3-12b-it",
+      "qwen/qwen3-32b"
+    ],
+    "reused_reference_free_models": [
+      "meta-llama/llama-3.1-8b-instruct",
+      "google/gemma-3-12b-it"
+    ],
+    "new_model_calls": [
+      "qwen/qwen3-32b"
+    ],
+    "reused_cache_parse_fail_repair_enabled": true
+  },
+  "capability_slice_execution_gate": {
+    "fixed_before_model_calls": true,
+    "no_to_be_specified_in_execution_manifest": true,
+    "freeze_manifest_updated_before_evaluation": true
+  },
+  "failed_preflight": [
+    {
+      "model": "qwen/qwen-2.5-32b-instruct",
+      "reason": "OpenRouter HTTP 400 Bad Request during one-item preflight before full evaluation.",
+      "record": "results/frozen/strong_judge_slice_v1/failed_preflight_qwen_2_5_32b.jsonl",
+      "used_in_final_evaluation": false
+    }
+  ],
+  "result_summary": {
+    "fn_only_corr": 0.25152058645265224,
+    "false_consensus_rate": 0.13666666666666666,
+    "false_consensus_lift": 2.16912088881051,
+    "p_value": 0.0003332222592469177,
+    "rf_majority_false_accept_rate": 0.38666666666666666,
+    "rf_majority_true_accept_rate": 0.6466666666666666,
+    "final_parse_fail_by_model": {
+      "meta-llama/llama-3.1-8b-instruct": 0,
+      "google/gemma-3-12b-it": 0,
+      "qwen/qwen3-32b": 0
+    }
+  },
+  "cache_validation": {
+    "attempts_by_model": {
+      "meta-llama/llama-3.1-8b-instruct": 601,
+      "google/gemma-3-12b-it": 601,
+      "qwen/qwen3-32b": 1292
+    },
+    "parse_fail_attempts_by_model": {
+      "meta-llama/llama-3.1-8b-instruct": 1,
+      "google/gemma-3-12b-it": 1,
+      "qwen/qwen3-32b": 692
+    },
+    "final_valid_by_model": {
+      "meta-llama/llama-3.1-8b-instruct": 600,
+      "google/gemma-3-12b-it": 600,
+      "qwen/qwen3-32b": 600
+    },
+    "final_parse_fail_by_model": {
+      "meta-llama/llama-3.1-8b-instruct": 0,
+      "google/gemma-3-12b-it": 0,
+      "qwen/qwen3-32b": 0
+    },
+    "total_parse_fail_attempts": 694,
+    "total_final_parse_fail": 0
+  },
+  "cache_validation_note": "qwen/qwen3-32b preliminary attempts could enter reasoning-only mode under the default prompt. Final cache repairs those attempts with /no_think; final evaluated cache has 600 valid qwen3 verdicts and 0 final parse_fail.",
+  "results": {
+    "summary_json": "results/frozen/strong_judge_slice_v1/summary.json",
+    "summary_markdown": "results/frozen/strong_judge_slice_v1/summary.md",
+    "capability_rf_cache": "results/frozen/strong_judge_slice_v1/number_v3_capability_rf.jsonl"
+  }
+}
