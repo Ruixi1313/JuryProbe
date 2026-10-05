@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use JuryProbe in research, please cite the paper below."
+type: software
+title: "JuryProbe"
+authors:
+  - family-names: Zhou
+    given-names: Tianxin
+  - family-names: Lin
+    given-names: Ruixi
+repository-code: "https://github.com/Ruixi1313/JuryProbe"
+preferred-citation:
+  type: article
+  title: "JuryProbe: An Empirical Consensus-Risk Diagnostic for Routing Reference-Free Factuality Judge Panels to Grounded Verification"
+  authors:
+    - family-names: Zhou
+      given-names: Tianxin
+    - family-names: Lin
+      given-names: Ruixi
+  journal: "Transactions on Machine Learning Research"
+  year: 2026
+  doi: "10.48550/arXiv.2608.20607"
+  url: "https://arxiv.org/abs/2608.20607"
