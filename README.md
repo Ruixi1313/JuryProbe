@@ -7,8 +7,7 @@ grounded verification with trusted references.
 
 The project supports the paper:
 
-**JuryProbe: A Consensus-Risk Guardrail for Reference-Free Factuality Judge
-Panels**
+**[JuryProbe: An Empirical Consensus-Risk Diagnostic for Routing Reference-Free Factuality Judge Panels to Grounded Verification](https://arxiv.org/abs/2608.20607)**
 
 ## Overview
 
@@ -189,3 +188,47 @@ To check that the tracked Python files parse:
 ```bash
 python3 -m py_compile src/*.py scripts/*.py
 ```
+
+## License
+
+The original project code and associated documentation are licensed under the
+[MIT License](LICENSE), copyright (c) 2026 Tianxin Zhou and Ruixi Lin, with the
+following scope exclusions:
+
+- `scripts/build_fever_number_seeds.py` is excluded from this MIT grant pending
+  clarification of the upstream snippet referenced in its source note. No
+  license for that upstream material is asserted here.
+- The paper, datasets, model weights, and model outputs are not covered by this
+  MIT grant.
+- FEVER-derived claims, examples, and audit excerpts, including those embedded
+  in documentation, `audits/`, and `frozen/`, retain their applicable upstream
+  terms. See the [FEVER data license](https://fever.ai/download/fever/license.html),
+  which refers to the applicable Wikipedia article terms and otherwise
+  CC BY-SA 3.0.
+- Third-party software and services retain their own licenses and terms.
+  In particular, the `certifi` dependency is separately licensed under
+  [MPL-2.0](https://github.com/certifi/python-certifi/blob/master/LICENSE).
+
+These exclusions identify materials outside the MIT grant; they do not add
+restrictions to use of the code covered by MIT.
+
+## Citation
+
+If you use JuryProbe in research, please cite the paper:
+
+```bibtex
+@article{zhou2026juryprobe,
+  title = {JuryProbe: An Empirical Consensus-Risk Diagnostic for Routing Reference-Free Factuality Judge Panels to Grounded Verification},
+  author = {Zhou, Tianxin and Lin, Ruixi},
+  journal = {Transactions on Machine Learning Research},
+  year = {2026},
+  eprint = {2608.20607},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  doi = {10.48550/arXiv.2608.20607},
+  url = {https://arxiv.org/abs/2608.20607}
+}
+```
+
+Machine-readable citation metadata is available in [CITATION.cff](CITATION.cff).
+Citation is a scholarly request, not an additional condition of the MIT License.
