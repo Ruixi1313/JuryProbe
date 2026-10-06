@@ -101,7 +101,7 @@ Packaging does not push commits, publish releases, or rewrite Git history.
 Publish only this allowlisted release, not the full research checkout. Files
 removed from a current tree may remain visible in existing Git history.
 
-## License and Citation
+## License
 
 Original code and associated documentation are covered by the [MIT License](LICENSE),
 copyright (c) 2026 Tianxin Zhou and Ruixi Lin. The paper, datasets, model outputs,
@@ -112,5 +112,23 @@ relicense them under MIT. The optional `certifi` dependency retains its own lice
 The legacy `scripts/build_fever_number_seeds.py` is excluded from the release
 and MIT grant pending upstream provenance clarification.
 
-Machine-readable paper metadata is in [CITATION.cff](CITATION.cff). Citation is a
-scholarly request, not an additional condition of the MIT License.
+## Citation
+
+If you use JuryProbe in research, please cite the paper:
+
+```bibtex
+@article{zhou2026juryprobe,
+  title = {JuryProbe: An Empirical Consensus-Risk Diagnostic for Routing Reference-Free Factuality Judge Panels to Grounded Verification},
+  author = {Zhou, Tianxin and Lin, Ruixi},
+  journal = {Transactions on Machine Learning Research},
+  year = {2026},
+  eprint = {2608.20607},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  doi = {10.48550/arXiv.2608.20607},
+  url = {https://arxiv.org/abs/2608.20607}
+}
+```
+
+Machine-readable citation metadata is available in [CITATION.cff](CITATION.cff).
+Citation is a scholarly request, not an additional condition of the MIT License.
