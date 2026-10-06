@@ -1,36 +1,8 @@
-# Secrets and local environment
 .env
 .env.*
 !.env.template
 .venv/
-venv/
-env/
-
-# Python caches
 __pycache__/
 *.pyc
-*.pyo
-.pytest_cache/
-.mypy_cache/
-
-# Local results and intermediate data
-results/**/*.csv
-results/**/*.json
-results/**/*.jsonl
-results/**/*.log
-data/
-tmp/
-
-# Submission/export artifacts
-TMLR_Journal_Submission*.pdf
-TMLR_Journal_Submission*.zip
-
-# Local reference PDFs
-related_work/*.pdf
-
-# OS
 .DS_Store
-
-# IDE
-.vscode/
-.idea/
+reproduced/

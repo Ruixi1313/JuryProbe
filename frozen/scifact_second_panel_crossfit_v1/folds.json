@@ -1,0 +1,5702 @@
+{
+  "version": "scifact_second_panel_crossfit_v1",
+  "seed": 20260722,
+  "algorithm": "connected components over shared gold-evidence document IDs; deterministic greedy assignment minimizing total squared clean/false fold imbalance",
+  "claims": "data/scifact_natural_n190.jsonl",
+  "claims_sha256": "1ca20b16629f66bca47f3f6c0ac5767d49601d8fc748ca7405efd93c4ec7d2ca",
+  "references": "data/scifact_retrieval_refs.jsonl",
+  "references_sha256": "ee2f31e5c7de8c840fa19705b5de0f0179a91b2b24b377b99417e594b59279cb",
+  "n_items": 380,
+  "n_groups": 263,
+  "n_folds": 5,
+  "folds": [
+    {
+      "fold": 1,
+      "n_deployment": 76,
+      "n_deployment_clean": 38,
+      "n_deployment_false": 38,
+      "n_calibration": 304,
+      "n_calibration_clean": 152,
+      "n_calibration_false": 152,
+      "deployment_item_ids": [
+        "scifact_0001",
+        "scifact_0010",
+        "scifact_0021",
+        "scifact_0030",
+        "scifact_0034",
+        "scifact_0036",
+        "scifact_0040",
+        "scifact_0045",
+        "scifact_0046",
+        "scifact_0056",
+        "scifact_0059",
+        "scifact_0062",
+        "scifact_0066",
+        "scifact_0074",
+        "scifact_0078",
+        "scifact_0079",
+        "scifact_0080",
+        "scifact_0086",
+        "scifact_0087",
+        "scifact_0091",
+        "scifact_0116",
+        "scifact_0122",
+        "scifact_0133",
+        "scifact_0134",
+        "scifact_0135",
+        "scifact_0143",
+        "scifact_0152",
+        "scifact_0156",
+        "scifact_0161",
+        "scifact_0162",
+        "scifact_0165",
+        "scifact_0175",
+        "scifact_0179",
+        "scifact_0181",
+        "scifact_0183",
+        "scifact_0184",
+        "scifact_0189",
+        "scifact_0190",
+        "scifact_0192",
+        "scifact_0193",
+        "scifact_0195",
+        "scifact_0198",
+        "scifact_0210",
+        "scifact_0212",
+        "scifact_0218",
+        "scifact_0225",
+        "scifact_0228",
+        "scifact_0231",
+        "scifact_0233",
+        "scifact_0245",
+        "scifact_0253",
+        "scifact_0261",
+        "scifact_0281",
+        "scifact_0282",
+        "scifact_0283",
+        "scifact_0284",
+        "scifact_0285",
+        "scifact_0291",
+        "scifact_0293",
+        "scifact_0304",
+        "scifact_0310",
+        "scifact_0311",
+        "scifact_0313",
+        "scifact_0322",
+        "scifact_0334",
+        "scifact_0335",
+        "scifact_0338",
+        "scifact_0342",
+        "scifact_0349",
+        "scifact_0364",
+        "scifact_0366",
+        "scifact_0367",
+        "scifact_0370",
+        "scifact_0371",
+        "scifact_0374",
+        "scifact_0376"
+      ],
+      "calibration_item_ids": [
+        "scifact_0002",
+        "scifact_0003",
+        "scifact_0004",
+        "scifact_0005",
+        "scifact_0006",
+        "scifact_0007",
+        "scifact_0008",
+        "scifact_0009",
+        "scifact_0011",
+        "scifact_0012",
+        "scifact_0013",
+        "scifact_0014",
+        "scifact_0015",
+        "scifact_0016",
+        "scifact_0017",
+        "scifact_0018",
+        "scifact_0019",
+        "scifact_0020",
+        "scifact_0022",
+        "scifact_0023",
+        "scifact_0024",
+        "scifact_0025",
+        "scifact_0026",
+        "scifact_0027",
+        "scifact_0028",
+        "scifact_0029",
+        "scifact_0031",
+        "scifact_0032",
+        "scifact_0033",
+        "scifact_0035",
+        "scifact_0037",
+        "scifact_0038",
+        "scifact_0039",
+        "scifact_0041",
+        "scifact_0042",
+        "scifact_0043",
+        "scifact_0044",
+        "scifact_0047",
+        "scifact_0048",
+        "scifact_0049",
+        "scifact_0050",
+        "scifact_0051",
+        "scifact_0052",
+        "scifact_0053",
+        "scifact_0054",
+        "scifact_0055",
+        "scifact_0057",
+        "scifact_0058",
+        "scifact_0060",
+        "scifact_0061",
+        "scifact_0063",
+        "scifact_0064",
+        "scifact_0065",
+        "scifact_0067",
+        "scifact_0068",
+        "scifact_0069",
+        "scifact_0070",
+        "scifact_0071",
+        "scifact_0072",
+        "scifact_0073",
+        "scifact_0075",
+        "scifact_0076",
+        "scifact_0077",
+        "scifact_0081",
+        "scifact_0082",
+        "scifact_0083",
+        "scifact_0084",
+        "scifact_0085",
+        "scifact_0088",
+        "scifact_0089",
+        "scifact_0090",
+        "scifact_0092",
+        "scifact_0093",
+        "scifact_0094",
+        "scifact_0095",
+        "scifact_0096",
+        "scifact_0097",
+        "scifact_0098",
+        "scifact_0099",
+        "scifact_0100",
+        "scifact_0101",
+        "scifact_0102",
+        "scifact_0103",
+        "scifact_0104",
+        "scifact_0105",
+        "scifact_0106",
+        "scifact_0107",
+        "scifact_0108",
+        "scifact_0109",
+        "scifact_0110",
+        "scifact_0111",
+        "scifact_0112",
+        "scifact_0113",
+        "scifact_0114",
+        "scifact_0115",
+        "scifact_0117",
+        "scifact_0118",
+        "scifact_0119",
+        "scifact_0120",
+        "scifact_0121",
+        "scifact_0123",
+        "scifact_0124",
+        "scifact_0125",
+        "scifact_0126",
+        "scifact_0127",
+        "scifact_0128",
+        "scifact_0129",
+        "scifact_0130",
+        "scifact_0131",
+        "scifact_0132",
+        "scifact_0136",
+        "scifact_0137",
+        "scifact_0138",
+        "scifact_0139",
+        "scifact_0140",
+        "scifact_0141",
+        "scifact_0142",
+        "scifact_0144",
+        "scifact_0145",
+        "scifact_0146",
+        "scifact_0147",
+        "scifact_0148",
+        "scifact_0149",
+        "scifact_0150",
+        "scifact_0151",
+        "scifact_0153",
+        "scifact_0154",
+        "scifact_0155",
+        "scifact_0157",
+        "scifact_0158",
+        "scifact_0159",
+        "scifact_0160",
+        "scifact_0163",
+        "scifact_0164",
+        "scifact_0166",
+        "scifact_0167",
+        "scifact_0168",
+        "scifact_0169",
+        "scifact_0170",
+        "scifact_0171",
+        "scifact_0172",
+        "scifact_0173",
+        "scifact_0174",
+        "scifact_0176",
+        "scifact_0177",
+        "scifact_0178",
+        "scifact_0180",
+        "scifact_0182",
+        "scifact_0185",
+        "scifact_0186",
+        "scifact_0187",
+        "scifact_0188",
+        "scifact_0191",
+        "scifact_0194",
+        "scifact_0196",
+        "scifact_0197",
+        "scifact_0199",
+        "scifact_0200",
+        "scifact_0201",
+        "scifact_0202",
+        "scifact_0203",
+        "scifact_0204",
+        "scifact_0205",
+        "scifact_0206",
+        "scifact_0207",
+        "scifact_0208",
+        "scifact_0209",
+        "scifact_0211",
+        "scifact_0213",
+        "scifact_0214",
+        "scifact_0215",
+        "scifact_0216",
+        "scifact_0217",
+        "scifact_0219",
+        "scifact_0220",
+        "scifact_0221",
+        "scifact_0222",
+        "scifact_0223",
+        "scifact_0224",
+        "scifact_0226",
+        "scifact_0227",
+        "scifact_0229",
+        "scifact_0230",
+        "scifact_0232",
+        "scifact_0234",
+        "scifact_0235",
+        "scifact_0236",
+        "scifact_0237",
+        "scifact_0238",
+        "scifact_0239",
+        "scifact_0240",
+        "scifact_0241",
+        "scifact_0242",
+        "scifact_0243",
+        "scifact_0244",
+        "scifact_0246",
+        "scifact_0247",
+        "scifact_0248",
+        "scifact_0249",
+        "scifact_0250",
+        "scifact_0251",
+        "scifact_0252",
+        "scifact_0254",
+        "scifact_0255",
+        "scifact_0256",
+        "scifact_0257",
+        "scifact_0258",
+        "scifact_0259",
+        "scifact_0260",
+        "scifact_0262",
+        "scifact_0263",
+        "scifact_0264",
+        "scifact_0265",
+        "scifact_0266",
+        "scifact_0267",
+        "scifact_0268",
+        "scifact_0269",
+        "scifact_0270",
+        "scifact_0271",
+        "scifact_0272",
+        "scifact_0273",
+        "scifact_0274",
+        "scifact_0275",
+        "scifact_0276",
+        "scifact_0277",
+        "scifact_0278",
+        "scifact_0279",
+        "scifact_0280",
+        "scifact_0286",
+        "scifact_0287",
+        "scifact_0288",
+        "scifact_0289",
+        "scifact_0290",
+        "scifact_0292",
+        "scifact_0294",
+        "scifact_0295",
+        "scifact_0296",
+        "scifact_0297",
+        "scifact_0298",
+        "scifact_0299",
+        "scifact_0300",
+        "scifact_0301",
+        "scifact_0302",
+        "scifact_0303",
+        "scifact_0305",
+        "scifact_0306",
+        "scifact_0307",
+        "scifact_0308",
+        "scifact_0309",
+        "scifact_0312",
+        "scifact_0314",
+        "scifact_0315",
+        "scifact_0316",
+        "scifact_0317",
+        "scifact_0318",
+        "scifact_0319",
+        "scifact_0320",
+        "scifact_0321",
+        "scifact_0323",
+        "scifact_0324",
+        "scifact_0325",
+        "scifact_0326",
+        "scifact_0327",
+        "scifact_0328",
+        "scifact_0329",
+        "scifact_0330",
+        "scifact_0331",
+        "scifact_0332",
+        "scifact_0333",
+        "scifact_0336",
+        "scifact_0337",
+        "scifact_0339",
+        "scifact_0340",
+        "scifact_0341",
+        "scifact_0343",
+        "scifact_0344",
+        "scifact_0345",
+        "scifact_0346",
+        "scifact_0347",
+        "scifact_0348",
+        "scifact_0350",
+        "scifact_0351",
+        "scifact_0352",
+        "scifact_0353",
+        "scifact_0354",
+        "scifact_0355",
+        "scifact_0356",
+        "scifact_0357",
+        "scifact_0358",
+        "scifact_0359",
+        "scifact_0360",
+        "scifact_0361",
+        "scifact_0362",
+        "scifact_0363",
+        "scifact_0365",
+        "scifact_0368",
+        "scifact_0369",
+        "scifact_0372",
+        "scifact_0373",
+        "scifact_0375",
+        "scifact_0377",
+        "scifact_0378",
+        "scifact_0379",
+        "scifact_0380"
+      ],
+      "deployment_evidence_doc_ids": [
+        33370,
+        1522647,
+        2425364,
+        2488880,
+        2617858,
+        3578380,
+        3874000,
+        4506414,
+        4547102,
+        4828631,
+        4928057,
+        5099266,
+        5172048,
+        5558754,
+        5573975,
+        5884524,
+        6227220,
+        6493422,
+        6710713,
+        7098463,
+        8190282,
+        9433958,
+        9505402,
+        9638032,
+        11899391,
+        12258338,
+        12631697,
+        12643937,
+        12670680,
+        13794374,
+        13900610,
+        13923140,
+        13940200,
+        14797520,
+        17421851,
+        17671145,
+        17997584,
+        18340282,
+        19688024,
+        20333864,
+        21003930,
+        21295300,
+        22194407,
+        22544171,
+        22703082,
+        23895668,
+        24142891,
+        24241932,
+        28369117,
+        36444198,
+        36606083,
+        37204802,
+        38355793,
+        45638119,
+        49556906,
+        52873726
+      ]
+    },
+    {
+      "fold": 2,
+      "n_deployment": 76,
+      "n_deployment_clean": 38,
+      "n_deployment_false": 38,
+      "n_calibration": 304,
+      "n_calibration_clean": 152,
+      "n_calibration_false": 152,
+      "deployment_item_ids": [
+        "scifact_0003",
+        "scifact_0006",
+        "scifact_0009",
+        "scifact_0020",
+        "scifact_0023",
+        "scifact_0027",
+        "scifact_0028",
+        "scifact_0033",
+        "scifact_0038",
+        "scifact_0039",
+        "scifact_0041",
+        "scifact_0043",
+        "scifact_0044",
+        "scifact_0048",
+        "scifact_0060",
+        "scifact_0064",
+        "scifact_0068",
+        "scifact_0069",
+        "scifact_0072",
+        "scifact_0081",
+        "scifact_0084",
+        "scifact_0092",
+        "scifact_0096",
+        "scifact_0097",
+        "scifact_0104",
+        "scifact_0118",
+        "scifact_0119",
+        "scifact_0120",
+        "scifact_0123",
+        "scifact_0130",
+        "scifact_0136",
+        "scifact_0146",
+        "scifact_0151",
+        "scifact_0157",
+        "scifact_0158",
+        "scifact_0168",
+        "scifact_0176",
+        "scifact_0182",
+        "scifact_0191",
+        "scifact_0202",
+        "scifact_0203",
+        "scifact_0214",
+        "scifact_0216",
+        "scifact_0217",
+        "scifact_0220",
+        "scifact_0221",
+        "scifact_0226",
+        "scifact_0230",
+        "scifact_0237",
+        "scifact_0239",
+        "scifact_0241",
+        "scifact_0242",
+        "scifact_0247",
+        "scifact_0248",
+        "scifact_0250",
+        "scifact_0271",
+        "scifact_0272",
+        "scifact_0290",
+        "scifact_0297",
+        "scifact_0299",
+        "scifact_0317",
+        "scifact_0320",
+        "scifact_0325",
+        "scifact_0327",
+        "scifact_0331",
+        "scifact_0333",
+        "scifact_0337",
+        "scifact_0339",
+        "scifact_0341",
+        "scifact_0353",
+        "scifact_0358",
+        "scifact_0361",
+        "scifact_0362",
+        "scifact_0369",
+        "scifact_0372",
+        "scifact_0378"
+      ],
+      "calibration_item_ids": [
+        "scifact_0001",
+        "scifact_0002",
+        "scifact_0004",
+        "scifact_0005",
+        "scifact_0007",
+        "scifact_0008",
+        "scifact_0010",
+        "scifact_0011",
+        "scifact_0012",
+        "scifact_0013",
+        "scifact_0014",
+        "scifact_0015",
+        "scifact_0016",
+        "scifact_0017",
+        "scifact_0018",
+        "scifact_0019",
+        "scifact_0021",
+        "scifact_0022",
+        "scifact_0024",
+        "scifact_0025",
+        "scifact_0026",
+        "scifact_0029",
+        "scifact_0030",
+        "scifact_0031",
+        "scifact_0032",
+        "scifact_0034",
+        "scifact_0035",
+        "scifact_0036",
+        "scifact_0037",
+        "scifact_0040",
+        "scifact_0042",
+        "scifact_0045",
+        "scifact_0046",
+        "scifact_0047",
+        "scifact_0049",
+        "scifact_0050",
+        "scifact_0051",
+        "scifact_0052",
+        "scifact_0053",
+        "scifact_0054",
+        "scifact_0055",
+        "scifact_0056",
+        "scifact_0057",
+        "scifact_0058",
+        "scifact_0059",
+        "scifact_0061",
+        "scifact_0062",
+        "scifact_0063",
+        "scifact_0065",
+        "scifact_0066",
+        "scifact_0067",
+        "scifact_0070",
+        "scifact_0071",
+        "scifact_0073",
+        "scifact_0074",
+        "scifact_0075",
+        "scifact_0076",
+        "scifact_0077",
+        "scifact_0078",
+        "scifact_0079",
+        "scifact_0080",
+        "scifact_0082",
+        "scifact_0083",
+        "scifact_0085",
+        "scifact_0086",
+        "scifact_0087",
+        "scifact_0088",
+        "scifact_0089",
+        "scifact_0090",
+        "scifact_0091",
+        "scifact_0093",
+        "scifact_0094",
+        "scifact_0095",
+        "scifact_0098",
+        "scifact_0099",
+        "scifact_0100",
+        "scifact_0101",
+        "scifact_0102",
+        "scifact_0103",
+        "scifact_0105",
+        "scifact_0106",
+        "scifact_0107",
+        "scifact_0108",
+        "scifact_0109",
+        "scifact_0110",
+        "scifact_0111",
+        "scifact_0112",
+        "scifact_0113",
+        "scifact_0114",
+        "scifact_0115",
+        "scifact_0116",
+        "scifact_0117",
+        "scifact_0121",
+        "scifact_0122",
+        "scifact_0124",
+        "scifact_0125",
+        "scifact_0126",
+        "scifact_0127",
+        "scifact_0128",
+        "scifact_0129",
+        "scifact_0131",
+        "scifact_0132",
+        "scifact_0133",
+        "scifact_0134",
+        "scifact_0135",
+        "scifact_0137",
+        "scifact_0138",
+        "scifact_0139",
+        "scifact_0140",
+        "scifact_0141",
+        "scifact_0142",
+        "scifact_0143",
+        "scifact_0144",
+        "scifact_0145",
+        "scifact_0147",
+        "scifact_0148",
+        "scifact_0149",
+        "scifact_0150",
+        "scifact_0152",
+        "scifact_0153",
+        "scifact_0154",
+        "scifact_0155",
+        "scifact_0156",
+        "scifact_0159",
+        "scifact_0160",
+        "scifact_0161",
+        "scifact_0162",
+        "scifact_0163",
+        "scifact_0164",
+        "scifact_0165",
+        "scifact_0166",
+        "scifact_0167",
+        "scifact_0169",
+        "scifact_0170",
+        "scifact_0171",
+        "scifact_0172",
+        "scifact_0173",
+        "scifact_0174",
+        "scifact_0175",
+        "scifact_0177",
+        "scifact_0178",
+        "scifact_0179",
+        "scifact_0180",
+        "scifact_0181",
+        "scifact_0183",
+        "scifact_0184",
+        "scifact_0185",
+        "scifact_0186",
+        "scifact_0187",
+        "scifact_0188",
+        "scifact_0189",
+        "scifact_0190",
+        "scifact_0192",
+        "scifact_0193",
+        "scifact_0194",
+        "scifact_0195",
+        "scifact_0196",
+        "scifact_0197",
+        "scifact_0198",
+        "scifact_0199",
+        "scifact_0200",
+        "scifact_0201",
+        "scifact_0204",
+        "scifact_0205",
+        "scifact_0206",
+        "scifact_0207",
+        "scifact_0208",
+        "scifact_0209",
+        "scifact_0210",
+        "scifact_0211",
+        "scifact_0212",
+        "scifact_0213",
+        "scifact_0215",
+        "scifact_0218",
+        "scifact_0219",
+        "scifact_0222",
+        "scifact_0223",
+        "scifact_0224",
+        "scifact_0225",
+        "scifact_0227",
+        "scifact_0228",
+        "scifact_0229",
+        "scifact_0231",
+        "scifact_0232",
+        "scifact_0233",
+        "scifact_0234",
+        "scifact_0235",
+        "scifact_0236",
+        "scifact_0238",
+        "scifact_0240",
+        "scifact_0243",
+        "scifact_0244",
+        "scifact_0245",
+        "scifact_0246",
+        "scifact_0249",
+        "scifact_0251",
+        "scifact_0252",
+        "scifact_0253",
+        "scifact_0254",
+        "scifact_0255",
+        "scifact_0256",
+        "scifact_0257",
+        "scifact_0258",
+        "scifact_0259",
+        "scifact_0260",
+        "scifact_0261",
+        "scifact_0262",
+        "scifact_0263",
+        "scifact_0264",
+        "scifact_0265",
+        "scifact_0266",
+        "scifact_0267",
+        "scifact_0268",
+        "scifact_0269",
+        "scifact_0270",
+        "scifact_0273",
+        "scifact_0274",
+        "scifact_0275",
+        "scifact_0276",
+        "scifact_0277",
+        "scifact_0278",
+        "scifact_0279",
+        "scifact_0280",
+        "scifact_0281",
+        "scifact_0282",
+        "scifact_0283",
+        "scifact_0284",
+        "scifact_0285",
+        "scifact_0286",
+        "scifact_0287",
+        "scifact_0288",
+        "scifact_0289",
+        "scifact_0291",
+        "scifact_0292",
+        "scifact_0293",
+        "scifact_0294",
+        "scifact_0295",
+        "scifact_0296",
+        "scifact_0298",
+        "scifact_0300",
+        "scifact_0301",
+        "scifact_0302",
+        "scifact_0303",
+        "scifact_0304",
+        "scifact_0305",
+        "scifact_0306",
+        "scifact_0307",
+        "scifact_0308",
+        "scifact_0309",
+        "scifact_0310",
+        "scifact_0311",
+        "scifact_0312",
+        "scifact_0313",
+        "scifact_0314",
+        "scifact_0315",
+        "scifact_0316",
+        "scifact_0318",
+        "scifact_0319",
+        "scifact_0321",
+        "scifact_0322",
+        "scifact_0323",
+        "scifact_0324",
+        "scifact_0326",
+        "scifact_0328",
+        "scifact_0329",
+        "scifact_0330",
+        "scifact_0332",
+        "scifact_0334",
+        "scifact_0335",
+        "scifact_0336",
+        "scifact_0338",
+        "scifact_0340",
+        "scifact_0342",
+        "scifact_0343",
+        "scifact_0344",
+        "scifact_0345",
+        "scifact_0346",
+        "scifact_0347",
+        "scifact_0348",
+        "scifact_0349",
+        "scifact_0350",
+        "scifact_0351",
+        "scifact_0352",
+        "scifact_0354",
+        "scifact_0355",
+        "scifact_0356",
+        "scifact_0357",
+        "scifact_0359",
+        "scifact_0360",
+        "scifact_0363",
+        "scifact_0364",
+        "scifact_0365",
+        "scifact_0366",
+        "scifact_0367",
+        "scifact_0368",
+        "scifact_0370",
+        "scifact_0371",
+        "scifact_0373",
+        "scifact_0374",
+        "scifact_0375",
+        "scifact_0376",
+        "scifact_0377",
+        "scifact_0379",
+        "scifact_0380"
+      ],
+      "deployment_evidence_doc_ids": [
+        306006,
+        791050,
+        1471041,
+        1550937,
+        1568684,
+        2014909,
+        2095573,
+        2462673,
+        2831620,
+        3430789,
+        3654468,
+        3944632,
+        4162857,
+        4319174,
+        4347374,
+        4388470,
+        5151024,
+        5476778,
+        5531479,
+        6309659,
+        6372244,
+        8551160,
+        10165258,
+        10991183,
+        11291348,
+        11659421,
+        11902109,
+        12428497,
+        12824568,
+        12991445,
+        13734012,
+        13770184,
+        13905670,
+        14682243,
+        15058155,
+        15488881,
+        15663829,
+        16355392,
+        16390264,
+        17814815,
+        18174210,
+        19675911,
+        19800147,
+        20033112,
+        21009874,
+        22080671,
+        23349986,
+        24922825,
+        25148216,
+        25515907,
+        25641414,
+        26016929,
+        26064662,
+        37549932,
+        39264456
+      ]
+    },
+    {
+      "fold": 3,
+      "n_deployment": 76,
+      "n_deployment_clean": 38,
+      "n_deployment_false": 38,
+      "n_calibration": 304,
+      "n_calibration_clean": 152,
+      "n_calibration_false": 152,
+      "deployment_item_ids": [
+        "scifact_0005",
+        "scifact_0008",
+        "scifact_0011",
+        "scifact_0015",
+        "scifact_0031",
+        "scifact_0032",
+        "scifact_0035",
+        "scifact_0037",
+        "scifact_0042",
+        "scifact_0049",
+        "scifact_0050",
+        "scifact_0055",
+        "scifact_0058",
+        "scifact_0063",
+        "scifact_0083",
+        "scifact_0088",
+        "scifact_0093",
+        "scifact_0107",
+        "scifact_0110",
+        "scifact_0111",
+        "scifact_0115",
+        "scifact_0121",
+        "scifact_0124",
+        "scifact_0132",
+        "scifact_0137",
+        "scifact_0144",
+        "scifact_0147",
+        "scifact_0148",
+        "scifact_0153",
+        "scifact_0159",
+        "scifact_0160",
+        "scifact_0163",
+        "scifact_0164",
+        "scifact_0171",
+        "scifact_0172",
+        "scifact_0174",
+        "scifact_0177",
+        "scifact_0188",
+        "scifact_0194",
+        "scifact_0201",
+        "scifact_0204",
+        "scifact_0208",
+        "scifact_0209",
+        "scifact_0215",
+        "scifact_0223",
+        "scifact_0224",
+        "scifact_0234",
+        "scifact_0235",
+        "scifact_0236",
+        "scifact_0240",
+        "scifact_0249",
+        "scifact_0251",
+        "scifact_0252",
+        "scifact_0255",
+        "scifact_0256",
+        "scifact_0259",
+        "scifact_0265",
+        "scifact_0268",
+        "scifact_0276",
+        "scifact_0288",
+        "scifact_0296",
+        "scifact_0298",
+        "scifact_0300",
+        "scifact_0305",
+        "scifact_0306",
+        "scifact_0309",
+        "scifact_0328",
+        "scifact_0329",
+        "scifact_0336",
+        "scifact_0344",
+        "scifact_0348",
+        "scifact_0357",
+        "scifact_0363",
+        "scifact_0368",
+        "scifact_0373",
+        "scifact_0377"
+      ],
+      "calibration_item_ids": [
+        "scifact_0001",
+        "scifact_0002",
+        "scifact_0003",
+        "scifact_0004",
+        "scifact_0006",
+        "scifact_0007",
+        "scifact_0009",
+        "scifact_0010",
+        "scifact_0012",
+        "scifact_0013",
+        "scifact_0014",
+        "scifact_0016",
+        "scifact_0017",
+        "scifact_0018",
+        "scifact_0019",
+        "scifact_0020",
+        "scifact_0021",
+        "scifact_0022",
+        "scifact_0023",
+        "scifact_0024",
+        "scifact_0025",
+        "scifact_0026",
+        "scifact_0027",
+        "scifact_0028",
+        "scifact_0029",
+        "scifact_0030",
+        "scifact_0033",
+        "scifact_0034",
+        "scifact_0036",
+        "scifact_0038",
+        "scifact_0039",
+        "scifact_0040",
+        "scifact_0041",
+        "scifact_0043",
+        "scifact_0044",
+        "scifact_0045",
+        "scifact_0046",
+        "scifact_0047",
+        "scifact_0048",
+        "scifact_0051",
+        "scifact_0052",
+        "scifact_0053",
+        "scifact_0054",
+        "scifact_0056",
+        "scifact_0057",
+        "scifact_0059",
+        "scifact_0060",
+        "scifact_0061",
+        "scifact_0062",
+        "scifact_0064",
+        "scifact_0065",
+        "scifact_0066",
+        "scifact_0067",
+        "scifact_0068",
+        "scifact_0069",
+        "scifact_0070",
+        "scifact_0071",
+        "scifact_0072",
+        "scifact_0073",
+        "scifact_0074",
+        "scifact_0075",
+        "scifact_0076",
+        "scifact_0077",
+        "scifact_0078",
+        "scifact_0079",
+        "scifact_0080",
+        "scifact_0081",
+        "scifact_0082",
+        "scifact_0084",
+        "scifact_0085",
+        "scifact_0086",
+        "scifact_0087",
+        "scifact_0089",
+        "scifact_0090",
+        "scifact_0091",
+        "scifact_0092",
+        "scifact_0094",
+        "scifact_0095",
+        "scifact_0096",
+        "scifact_0097",
+        "scifact_0098",
+        "scifact_0099",
+        "scifact_0100",
+        "scifact_0101",
+        "scifact_0102",
+        "scifact_0103",
+        "scifact_0104",
+        "scifact_0105",
+        "scifact_0106",
+        "scifact_0108",
+        "scifact_0109",
+        "scifact_0112",
+        "scifact_0113",
+        "scifact_0114",
+        "scifact_0116",
+        "scifact_0117",
+        "scifact_0118",
+        "scifact_0119",
+        "scifact_0120",
+        "scifact_0122",
+        "scifact_0123",
+        "scifact_0125",
+        "scifact_0126",
+        "scifact_0127",
+        "scifact_0128",
+        "scifact_0129",
+        "scifact_0130",
+        "scifact_0131",
+        "scifact_0133",
+        "scifact_0134",
+        "scifact_0135",
+        "scifact_0136",
+        "scifact_0138",
+        "scifact_0139",
+        "scifact_0140",
+        "scifact_0141",
+        "scifact_0142",
+        "scifact_0143",
+        "scifact_0145",
+        "scifact_0146",
+        "scifact_0149",
+        "scifact_0150",
+        "scifact_0151",
+        "scifact_0152",
+        "scifact_0154",
+        "scifact_0155",
+        "scifact_0156",
+        "scifact_0157",
+        "scifact_0158",
+        "scifact_0161",
+        "scifact_0162",
+        "scifact_0165",
+        "scifact_0166",
+        "scifact_0167",
+        "scifact_0168",
+        "scifact_0169",
+        "scifact_0170",
+        "scifact_0173",
+        "scifact_0175",
+        "scifact_0176",
+        "scifact_0178",
+        "scifact_0179",
+        "scifact_0180",
+        "scifact_0181",
+        "scifact_0182",
+        "scifact_0183",
+        "scifact_0184",
+        "scifact_0185",
+        "scifact_0186",
+        "scifact_0187",
+        "scifact_0189",
+        "scifact_0190",
+        "scifact_0191",
+        "scifact_0192",
+        "scifact_0193",
+        "scifact_0195",
+        "scifact_0196",
+        "scifact_0197",
+        "scifact_0198",
+        "scifact_0199",
+        "scifact_0200",
+        "scifact_0202",
+        "scifact_0203",
+        "scifact_0205",
+        "scifact_0206",
+        "scifact_0207",
+        "scifact_0210",
+        "scifact_0211",
+        "scifact_0212",
+        "scifact_0213",
+        "scifact_0214",
+        "scifact_0216",
+        "scifact_0217",
+        "scifact_0218",
+        "scifact_0219",
+        "scifact_0220",
+        "scifact_0221",
+        "scifact_0222",
+        "scifact_0225",
+        "scifact_0226",
+        "scifact_0227",
+        "scifact_0228",
+        "scifact_0229",
+        "scifact_0230",
+        "scifact_0231",
+        "scifact_0232",
+        "scifact_0233",
+        "scifact_0237",
+        "scifact_0238",
+        "scifact_0239",
+        "scifact_0241",
+        "scifact_0242",
+        "scifact_0243",
+        "scifact_0244",
+        "scifact_0245",
+        "scifact_0246",
+        "scifact_0247",
+        "scifact_0248",
+        "scifact_0250",
+        "scifact_0253",
+        "scifact_0254",
+        "scifact_0257",
+        "scifact_0258",
+        "scifact_0260",
+        "scifact_0261",
+        "scifact_0262",
+        "scifact_0263",
+        "scifact_0264",
+        "scifact_0266",
+        "scifact_0267",
+        "scifact_0269",
+        "scifact_0270",
+        "scifact_0271",
+        "scifact_0272",
+        "scifact_0273",
+        "scifact_0274",
+        "scifact_0275",
+        "scifact_0277",
+        "scifact_0278",
+        "scifact_0279",
+        "scifact_0280",
+        "scifact_0281",
+        "scifact_0282",
+        "scifact_0283",
+        "scifact_0284",
+        "scifact_0285",
+        "scifact_0286",
+        "scifact_0287",
+        "scifact_0289",
+        "scifact_0290",
+        "scifact_0291",
+        "scifact_0292",
+        "scifact_0293",
+        "scifact_0294",
+        "scifact_0295",
+        "scifact_0297",
+        "scifact_0299",
+        "scifact_0301",
+        "scifact_0302",
+        "scifact_0303",
+        "scifact_0304",
+        "scifact_0307",
+        "scifact_0308",
+        "scifact_0310",
+        "scifact_0311",
+        "scifact_0312",
+        "scifact_0313",
+        "scifact_0314",
+        "scifact_0315",
+        "scifact_0316",
+        "scifact_0317",
+        "scifact_0318",
+        "scifact_0319",
+        "scifact_0320",
+        "scifact_0321",
+        "scifact_0322",
+        "scifact_0323",
+        "scifact_0324",
+        "scifact_0325",
+        "scifact_0326",
+        "scifact_0327",
+        "scifact_0330",
+        "scifact_0331",
+        "scifact_0332",
+        "scifact_0333",
+        "scifact_0334",
+        "scifact_0335",
+        "scifact_0337",
+        "scifact_0338",
+        "scifact_0339",
+        "scifact_0340",
+        "scifact_0341",
+        "scifact_0342",
+        "scifact_0343",
+        "scifact_0345",
+        "scifact_0346",
+        "scifact_0347",
+        "scifact_0349",
+        "scifact_0350",
+        "scifact_0351",
+        "scifact_0352",
+        "scifact_0353",
+        "scifact_0354",
+        "scifact_0355",
+        "scifact_0356",
+        "scifact_0358",
+        "scifact_0359",
+        "scifact_0360",
+        "scifact_0361",
+        "scifact_0362",
+        "scifact_0364",
+        "scifact_0365",
+        "scifact_0366",
+        "scifact_0367",
+        "scifact_0369",
+        "scifact_0370",
+        "scifact_0371",
+        "scifact_0372",
+        "scifact_0374",
+        "scifact_0375",
+        "scifact_0376",
+        "scifact_0378",
+        "scifact_0379",
+        "scifact_0380"
+      ],
+      "deployment_evidence_doc_ids": [
+        123859,
+        464511,
+        1982286,
+        3355397,
+        4961038,
+        5323845,
+        5468807,
+        6157837,
+        6325527,
+        6477536,
+        6766459,
+        6828370,
+        7370282,
+        7662395,
+        9315213,
+        9394119,
+        9558539,
+        9745001,
+        10582939,
+        11254556,
+        11369420,
+        12040627,
+        12486491,
+        12804937,
+        12885341,
+        13001323,
+        13230773,
+        13497630,
+        13509809,
+        13763195,
+        13907928,
+        13910150,
+        14079881,
+        14241418,
+        14376683,
+        14606752,
+        15493354,
+        16056514,
+        16787954,
+        17077004,
+        18956141,
+        18997216,
+        19005293,
+        20231138,
+        20418809,
+        22038539,
+        22442133,
+        23460562,
+        24338780,
+        26851674,
+        27768226,
+        28937856,
+        31460499,
+        32159283,
+        33872649,
+        43334921
+      ]
+    },
+    {
+      "fold": 4,
+      "n_deployment": 76,
+      "n_deployment_clean": 38,
+      "n_deployment_false": 38,
+      "n_calibration": 304,
+      "n_calibration_clean": 152,
+      "n_calibration_false": 152,
+      "deployment_item_ids": [
+        "scifact_0002",
+        "scifact_0004",
+        "scifact_0012",
+        "scifact_0014",
+        "scifact_0016",
+        "scifact_0017",
+        "scifact_0024",
+        "scifact_0025",
+        "scifact_0029",
+        "scifact_0047",
+        "scifact_0053",
+        "scifact_0054",
+        "scifact_0065",
+        "scifact_0071",
+        "scifact_0077",
+        "scifact_0085",
+        "scifact_0089",
+        "scifact_0094",
+        "scifact_0095",
+        "scifact_0098",
+        "scifact_0099",
+        "scifact_0101",
+        "scifact_0105",
+        "scifact_0106",
+        "scifact_0112",
+        "scifact_0113",
+        "scifact_0125",
+        "scifact_0127",
+        "scifact_0131",
+        "scifact_0140",
+        "scifact_0142",
+        "scifact_0145",
+        "scifact_0150",
+        "scifact_0155",
+        "scifact_0167",
+        "scifact_0170",
+        "scifact_0173",
+        "scifact_0185",
+        "scifact_0196",
+        "scifact_0197",
+        "scifact_0199",
+        "scifact_0200",
+        "scifact_0213",
+        "scifact_0222",
+        "scifact_0227",
+        "scifact_0229",
+        "scifact_0244",
+        "scifact_0254",
+        "scifact_0257",
+        "scifact_0263",
+        "scifact_0266",
+        "scifact_0267",
+        "scifact_0269",
+        "scifact_0270",
+        "scifact_0278",
+        "scifact_0279",
+        "scifact_0280",
+        "scifact_0286",
+        "scifact_0287",
+        "scifact_0292",
+        "scifact_0302",
+        "scifact_0303",
+        "scifact_0307",
+        "scifact_0314",
+        "scifact_0316",
+        "scifact_0319",
+        "scifact_0326",
+        "scifact_0330",
+        "scifact_0347",
+        "scifact_0351",
+        "scifact_0352",
+        "scifact_0356",
+        "scifact_0365",
+        "scifact_0375",
+        "scifact_0379",
+        "scifact_0380"
+      ],
+      "calibration_item_ids": [
+        "scifact_0001",
+        "scifact_0003",
+        "scifact_0005",
+        "scifact_0006",
+        "scifact_0007",
+        "scifact_0008",
+        "scifact_0009",
+        "scifact_0010",
+        "scifact_0011",
+        "scifact_0013",
+        "scifact_0015",
+        "scifact_0018",
+        "scifact_0019",
+        "scifact_0020",
+        "scifact_0021",
+        "scifact_0022",
+        "scifact_0023",
+        "scifact_0026",
+        "scifact_0027",
+        "scifact_0028",
+        "scifact_0030",
+        "scifact_0031",
+        "scifact_0032",
+        "scifact_0033",
+        "scifact_0034",
+        "scifact_0035",
+        "scifact_0036",
+        "scifact_0037",
+        "scifact_0038",
+        "scifact_0039",
+        "scifact_0040",
+        "scifact_0041",
+        "scifact_0042",
+        "scifact_0043",
+        "scifact_0044",
+        "scifact_0045",
+        "scifact_0046",
+        "scifact_0048",
+        "scifact_0049",
+        "scifact_0050",
+        "scifact_0051",
+        "scifact_0052",
+        "scifact_0055",
+        "scifact_0056",
+        "scifact_0057",
+        "scifact_0058",
+        "scifact_0059",
+        "scifact_0060",
+        "scifact_0061",
+        "scifact_0062",
+        "scifact_0063",
+        "scifact_0064",
+        "scifact_0066",
+        "scifact_0067",
+        "scifact_0068",
+        "scifact_0069",
+        "scifact_0070",
+        "scifact_0072",
+        "scifact_0073",
+        "scifact_0074",
+        "scifact_0075",
+        "scifact_0076",
+        "scifact_0078",
+        "scifact_0079",
+        "scifact_0080",
+        "scifact_0081",
+        "scifact_0082",
+        "scifact_0083",
+        "scifact_0084",
+        "scifact_0086",
+        "scifact_0087",
+        "scifact_0088",
+        "scifact_0090",
+        "scifact_0091",
+        "scifact_0092",
+        "scifact_0093",
+        "scifact_0096",
+        "scifact_0097",
+        "scifact_0100",
+        "scifact_0102",
+        "scifact_0103",
+        "scifact_0104",
+        "scifact_0107",
+        "scifact_0108",
+        "scifact_0109",
+        "scifact_0110",
+        "scifact_0111",
+        "scifact_0114",
+        "scifact_0115",
+        "scifact_0116",
+        "scifact_0117",
+        "scifact_0118",
+        "scifact_0119",
+        "scifact_0120",
+        "scifact_0121",
+        "scifact_0122",
+        "scifact_0123",
+        "scifact_0124",
+        "scifact_0126",
+        "scifact_0128",
+        "scifact_0129",
+        "scifact_0130",
+        "scifact_0132",
+        "scifact_0133",
+        "scifact_0134",
+        "scifact_0135",
+        "scifact_0136",
+        "scifact_0137",
+        "scifact_0138",
+        "scifact_0139",
+        "scifact_0141",
+        "scifact_0143",
+        "scifact_0144",
+        "scifact_0146",
+        "scifact_0147",
+        "scifact_0148",
+        "scifact_0149",
+        "scifact_0151",
+        "scifact_0152",
+        "scifact_0153",
+        "scifact_0154",
+        "scifact_0156",
+        "scifact_0157",
+        "scifact_0158",
+        "scifact_0159",
+        "scifact_0160",
+        "scifact_0161",
+        "scifact_0162",
+        "scifact_0163",
+        "scifact_0164",
+        "scifact_0165",
+        "scifact_0166",
+        "scifact_0168",
+        "scifact_0169",
+        "scifact_0171",
+        "scifact_0172",
+        "scifact_0174",
+        "scifact_0175",
+        "scifact_0176",
+        "scifact_0177",
+        "scifact_0178",
+        "scifact_0179",
+        "scifact_0180",
+        "scifact_0181",
+        "scifact_0182",
+        "scifact_0183",
+        "scifact_0184",
+        "scifact_0186",
+        "scifact_0187",
+        "scifact_0188",
+        "scifact_0189",
+        "scifact_0190",
+        "scifact_0191",
+        "scifact_0192",
+        "scifact_0193",
+        "scifact_0194",
+        "scifact_0195",
+        "scifact_0198",
+        "scifact_0201",
+        "scifact_0202",
+        "scifact_0203",
+        "scifact_0204",
+        "scifact_0205",
+        "scifact_0206",
+        "scifact_0207",
+        "scifact_0208",
+        "scifact_0209",
+        "scifact_0210",
+        "scifact_0211",
+        "scifact_0212",
+        "scifact_0214",
+        "scifact_0215",
+        "scifact_0216",
+        "scifact_0217",
+        "scifact_0218",
+        "scifact_0219",
+        "scifact_0220",
+        "scifact_0221",
+        "scifact_0223",
+        "scifact_0224",
+        "scifact_0225",
+        "scifact_0226",
+        "scifact_0228",
+        "scifact_0230",
+        "scifact_0231",
+        "scifact_0232",
+        "scifact_0233",
+        "scifact_0234",
+        "scifact_0235",
+        "scifact_0236",
+        "scifact_0237",
+        "scifact_0238",
+        "scifact_0239",
+        "scifact_0240",
+        "scifact_0241",
+        "scifact_0242",
+        "scifact_0243",
+        "scifact_0245",
+        "scifact_0246",
+        "scifact_0247",
+        "scifact_0248",
+        "scifact_0249",
+        "scifact_0250",
+        "scifact_0251",
+        "scifact_0252",
+        "scifact_0253",
+        "scifact_0255",
+        "scifact_0256",
+        "scifact_0258",
+        "scifact_0259",
+        "scifact_0260",
+        "scifact_0261",
+        "scifact_0262",
+        "scifact_0264",
+        "scifact_0265",
+        "scifact_0268",
+        "scifact_0271",
+        "scifact_0272",
+        "scifact_0273",
+        "scifact_0274",
+        "scifact_0275",
+        "scifact_0276",
+        "scifact_0277",
+        "scifact_0281",
+        "scifact_0282",
+        "scifact_0283",
+        "scifact_0284",
+        "scifact_0285",
+        "scifact_0288",
+        "scifact_0289",
+        "scifact_0290",
+        "scifact_0291",
+        "scifact_0293",
+        "scifact_0294",
+        "scifact_0295",
+        "scifact_0296",
+        "scifact_0297",
+        "scifact_0298",
+        "scifact_0299",
+        "scifact_0300",
+        "scifact_0301",
+        "scifact_0304",
+        "scifact_0305",
+        "scifact_0306",
+        "scifact_0308",
+        "scifact_0309",
+        "scifact_0310",
+        "scifact_0311",
+        "scifact_0312",
+        "scifact_0313",
+        "scifact_0315",
+        "scifact_0317",
+        "scifact_0318",
+        "scifact_0320",
+        "scifact_0321",
+        "scifact_0322",
+        "scifact_0323",
+        "scifact_0324",
+        "scifact_0325",
+        "scifact_0327",
+        "scifact_0328",
+        "scifact_0329",
+        "scifact_0331",
+        "scifact_0332",
+        "scifact_0333",
+        "scifact_0334",
+        "scifact_0335",
+        "scifact_0336",
+        "scifact_0337",
+        "scifact_0338",
+        "scifact_0339",
+        "scifact_0340",
+        "scifact_0341",
+        "scifact_0342",
+        "scifact_0343",
+        "scifact_0344",
+        "scifact_0345",
+        "scifact_0346",
+        "scifact_0348",
+        "scifact_0349",
+        "scifact_0350",
+        "scifact_0353",
+        "scifact_0354",
+        "scifact_0355",
+        "scifact_0357",
+        "scifact_0358",
+        "scifact_0359",
+        "scifact_0360",
+        "scifact_0361",
+        "scifact_0362",
+        "scifact_0363",
+        "scifact_0364",
+        "scifact_0366",
+        "scifact_0367",
+        "scifact_0368",
+        "scifact_0369",
+        "scifact_0370",
+        "scifact_0371",
+        "scifact_0372",
+        "scifact_0373",
+        "scifact_0374",
+        "scifact_0376",
+        "scifact_0377",
+        "scifact_0378"
+      ],
+      "deployment_evidence_doc_ids": [
+        301838,
+        380526,
+        1122279,
+        1456068,
+        1642727,
+        1649738,
+        1686997,
+        1834762,
+        1974176,
+        2212067,
+        2734421,
+        3475317,
+        3898784,
+        3952288,
+        4200695,
+        4421578,
+        4740447,
+        4883040,
+        5256564,
+        5260382,
+        5289038,
+        5691302,
+        5824985,
+        6144337,
+        6277638,
+        7521113,
+        7552215,
+        8426046,
+        9764256,
+        9955779,
+        10071552,
+        10697096,
+        11614737,
+        13023410,
+        13768432,
+        13843341,
+        14340571,
+        14803797,
+        15041758,
+        15319019,
+        15476777,
+        16284655,
+        17587795,
+        17741440,
+        17755060,
+        18231807,
+        19736671,
+        19878070,
+        19912367,
+        20381484,
+        22180793,
+        22406695,
+        22500262,
+        24341590,
+        27446873,
+        27466734,
+        27873158,
+        28617573,
+        29564505,
+        39128592,
+        39281140,
+        46695481
+      ]
+    },
+    {
+      "fold": 5,
+      "n_deployment": 76,
+      "n_deployment_clean": 38,
+      "n_deployment_false": 38,
+      "n_calibration": 304,
+      "n_calibration_clean": 152,
+      "n_calibration_false": 152,
+      "deployment_item_ids": [
+        "scifact_0007",
+        "scifact_0013",
+        "scifact_0018",
+        "scifact_0019",
+        "scifact_0022",
+        "scifact_0026",
+        "scifact_0051",
+        "scifact_0052",
+        "scifact_0057",
+        "scifact_0061",
+        "scifact_0067",
+        "scifact_0070",
+        "scifact_0073",
+        "scifact_0075",
+        "scifact_0076",
+        "scifact_0082",
+        "scifact_0090",
+        "scifact_0100",
+        "scifact_0102",
+        "scifact_0103",
+        "scifact_0108",
+        "scifact_0109",
+        "scifact_0114",
+        "scifact_0117",
+        "scifact_0126",
+        "scifact_0128",
+        "scifact_0129",
+        "scifact_0138",
+        "scifact_0139",
+        "scifact_0141",
+        "scifact_0149",
+        "scifact_0154",
+        "scifact_0166",
+        "scifact_0169",
+        "scifact_0178",
+        "scifact_0180",
+        "scifact_0186",
+        "scifact_0187",
+        "scifact_0205",
+        "scifact_0206",
+        "scifact_0207",
+        "scifact_0211",
+        "scifact_0219",
+        "scifact_0232",
+        "scifact_0238",
+        "scifact_0243",
+        "scifact_0246",
+        "scifact_0258",
+        "scifact_0260",
+        "scifact_0262",
+        "scifact_0264",
+        "scifact_0273",
+        "scifact_0274",
+        "scifact_0275",
+        "scifact_0277",
+        "scifact_0289",
+        "scifact_0294",
+        "scifact_0295",
+        "scifact_0301",
+        "scifact_0308",
+        "scifact_0312",
+        "scifact_0315",
+        "scifact_0318",
+        "scifact_0321",
+        "scifact_0323",
+        "scifact_0324",
+        "scifact_0332",
+        "scifact_0340",
+        "scifact_0343",
+        "scifact_0345",
+        "scifact_0346",
+        "scifact_0350",
+        "scifact_0354",
+        "scifact_0355",
+        "scifact_0359",
+        "scifact_0360"
+      ],
+      "calibration_item_ids": [
+        "scifact_0001",
+        "scifact_0002",
+        "scifact_0003",
+        "scifact_0004",
+        "scifact_0005",
+        "scifact_0006",
+        "scifact_0008",
+        "scifact_0009",
+        "scifact_0010",
+        "scifact_0011",
+        "scifact_0012",
+        "scifact_0014",
+        "scifact_0015",
+        "scifact_0016",
+        "scifact_0017",
+        "scifact_0020",
+        "scifact_0021",
+        "scifact_0023",
+        "scifact_0024",
+        "scifact_0025",
+        "scifact_0027",
+        "scifact_0028",
+        "scifact_0029",
+        "scifact_0030",
+        "scifact_0031",
+        "scifact_0032",
+        "scifact_0033",
+        "scifact_0034",
+        "scifact_0035",
+        "scifact_0036",
+        "scifact_0037",
+        "scifact_0038",
+        "scifact_0039",
+        "scifact_0040",
+        "scifact_0041",
+        "scifact_0042",
+        "scifact_0043",
+        "scifact_0044",
+        "scifact_0045",
+        "scifact_0046",
+        "scifact_0047",
+        "scifact_0048",
+        "scifact_0049",
+        "scifact_0050",
+        "scifact_0053",
+        "scifact_0054",
+        "scifact_0055",
+        "scifact_0056",
+        "scifact_0058",
+        "scifact_0059",
+        "scifact_0060",
+        "scifact_0062",
+        "scifact_0063",
+        "scifact_0064",
+        "scifact_0065",
+        "scifact_0066",
+        "scifact_0068",
+        "scifact_0069",
+        "scifact_0071",
+        "scifact_0072",
+        "scifact_0074",
+        "scifact_0077",
+        "scifact_0078",
+        "scifact_0079",
+        "scifact_0080",
+        "scifact_0081",
+        "scifact_0083",
+        "scifact_0084",
+        "scifact_0085",
+        "scifact_0086",
+        "scifact_0087",
+        "scifact_0088",
+        "scifact_0089",
+        "scifact_0091",
+        "scifact_0092",
+        "scifact_0093",
+        "scifact_0094",
+        "scifact_0095",
+        "scifact_0096",
+        "scifact_0097",
+        "scifact_0098",
+        "scifact_0099",
+        "scifact_0101",
+        "scifact_0104",
+        "scifact_0105",
+        "scifact_0106",
+        "scifact_0107",
+        "scifact_0110",
+        "scifact_0111",
+        "scifact_0112",
+        "scifact_0113",
+        "scifact_0115",
+        "scifact_0116",
+        "scifact_0118",
+        "scifact_0119",
+        "scifact_0120",
+        "scifact_0121",
+        "scifact_0122",
+        "scifact_0123",
+        "scifact_0124",
+        "scifact_0125",
+        "scifact_0127",
+        "scifact_0130",
+        "scifact_0131",
+        "scifact_0132",
+        "scifact_0133",
+        "scifact_0134",
+        "scifact_0135",
+        "scifact_0136",
+        "scifact_0137",
+        "scifact_0140",
+        "scifact_0142",
+        "scifact_0143",
+        "scifact_0144",
+        "scifact_0145",
+        "scifact_0146",
+        "scifact_0147",
+        "scifact_0148",
+        "scifact_0150",
+        "scifact_0151",
+        "scifact_0152",
+        "scifact_0153",
+        "scifact_0155",
+        "scifact_0156",
+        "scifact_0157",
+        "scifact_0158",
+        "scifact_0159",
+        "scifact_0160",
+        "scifact_0161",
+        "scifact_0162",
+        "scifact_0163",
+        "scifact_0164",
+        "scifact_0165",
+        "scifact_0167",
+        "scifact_0168",
+        "scifact_0170",
+        "scifact_0171",
+        "scifact_0172",
+        "scifact_0173",
+        "scifact_0174",
+        "scifact_0175",
+        "scifact_0176",
+        "scifact_0177",
+        "scifact_0179",
+        "scifact_0181",
+        "scifact_0182",
+        "scifact_0183",
+        "scifact_0184",
+        "scifact_0185",
+        "scifact_0188",
+        "scifact_0189",
+        "scifact_0190",
+        "scifact_0191",
+        "scifact_0192",
+        "scifact_0193",
+        "scifact_0194",
+        "scifact_0195",
+        "scifact_0196",
+        "scifact_0197",
+        "scifact_0198",
+        "scifact_0199",
+        "scifact_0200",
+        "scifact_0201",
+        "scifact_0202",
+        "scifact_0203",
+        "scifact_0204",
+        "scifact_0208",
+        "scifact_0209",
+        "scifact_0210",
+        "scifact_0212",
+        "scifact_0213",
+        "scifact_0214",
+        "scifact_0215",
+        "scifact_0216",
+        "scifact_0217",
+        "scifact_0218",
+        "scifact_0220",
+        "scifact_0221",
+        "scifact_0222",
+        "scifact_0223",
+        "scifact_0224",
+        "scifact_0225",
+        "scifact_0226",
+        "scifact_0227",
+        "scifact_0228",
+        "scifact_0229",
+        "scifact_0230",
+        "scifact_0231",
+        "scifact_0233",
+        "scifact_0234",
+        "scifact_0235",
+        "scifact_0236",
+        "scifact_0237",
+        "scifact_0239",
+        "scifact_0240",
+        "scifact_0241",
+        "scifact_0242",
+        "scifact_0244",
+        "scifact_0245",
+        "scifact_0247",
+        "scifact_0248",
+        "scifact_0249",
+        "scifact_0250",
+        "scifact_0251",
+        "scifact_0252",
+        "scifact_0253",
+        "scifact_0254",
+        "scifact_0255",
+        "scifact_0256",
+        "scifact_0257",
+        "scifact_0259",
+        "scifact_0261",
+        "scifact_0263",
+        "scifact_0265",
+        "scifact_0266",
+        "scifact_0267",
+        "scifact_0268",
+        "scifact_0269",
+        "scifact_0270",
+        "scifact_0271",
+        "scifact_0272",
+        "scifact_0276",
+        "scifact_0278",
+        "scifact_0279",
+        "scifact_0280",
+        "scifact_0281",
+        "scifact_0282",
+        "scifact_0283",
+        "scifact_0284",
+        "scifact_0285",
+        "scifact_0286",
+        "scifact_0287",
+        "scifact_0288",
+        "scifact_0290",
+        "scifact_0291",
+        "scifact_0292",
+        "scifact_0293",
+        "scifact_0296",
+        "scifact_0297",
+        "scifact_0298",
+        "scifact_0299",
+        "scifact_0300",
+        "scifact_0302",
+        "scifact_0303",
+        "scifact_0304",
+        "scifact_0305",
+        "scifact_0306",
+        "scifact_0307",
+        "scifact_0309",
+        "scifact_0310",
+        "scifact_0311",
+        "scifact_0313",
+        "scifact_0314",
+        "scifact_0316",
+        "scifact_0317",
+        "scifact_0319",
+        "scifact_0320",
+        "scifact_0322",
+        "scifact_0325",
+        "scifact_0326",
+        "scifact_0327",
+        "scifact_0328",
+        "scifact_0329",
+        "scifact_0330",
+        "scifact_0331",
+        "scifact_0333",
+        "scifact_0334",
+        "scifact_0335",
+        "scifact_0336",
+        "scifact_0337",
+        "scifact_0338",
+        "scifact_0339",
+        "scifact_0341",
+        "scifact_0342",
+        "scifact_0344",
+        "scifact_0347",
+        "scifact_0348",
+        "scifact_0349",
+        "scifact_0351",
+        "scifact_0352",
+        "scifact_0353",
+        "scifact_0356",
+        "scifact_0357",
+        "scifact_0358",
+        "scifact_0361",
+        "scifact_0362",
+        "scifact_0363",
+        "scifact_0364",
+        "scifact_0365",
+        "scifact_0366",
+        "scifact_0367",
+        "scifact_0368",
+        "scifact_0369",
+        "scifact_0370",
+        "scifact_0371",
+        "scifact_0372",
+        "scifact_0373",
+        "scifact_0374",
+        "scifact_0375",
+        "scifact_0376",
+        "scifact_0377",
+        "scifact_0378",
+        "scifact_0379",
+        "scifact_0380"
+      ],
+      "deployment_evidence_doc_ids": [
+        935538,
+        1180972,
+        1469751,
+        2052720,
+        2867345,
+        3315558,
+        4306711,
+        4709641,
+        5912283,
+        6441369,
+        6490571,
+        7209559,
+        7821634,
+        8148304,
+        8246922,
+        9505448,
+        10648422,
+        10883736,
+        10984005,
+        11328820,
+        12009265,
+        12440953,
+        12580014,
+        12584053,
+        12685434,
+        12810152,
+        12827098,
+        13899137,
+        13931771,
+        13956305,
+        14437255,
+        14637235,
+        14717500,
+        15048300,
+        15928989,
+        15984735,
+        16066726,
+        16280642,
+        16322674,
+        16472469,
+        17450673,
+        17628888,
+        17930286,
+        18678095,
+        18872233,
+        19205437,
+        19307912,
+        19799455,
+        20888849,
+        21366394,
+        23557241,
+        24088502,
+        25001628,
+        25742130,
+        27099731,
+        27123743,
+        27393799,
+        27910499,
+        29025270,
+        37480103,
+        52072815,
+        52874170
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0001"
+      ],
+      "evidence_doc_ids": [
+        22703082
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0010",
+        "scifact_0233"
+      ],
+      "evidence_doc_ids": [
+        36606083
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0021"
+      ],
+      "evidence_doc_ids": [
+        14797520
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0030"
+      ],
+      "evidence_doc_ids": [
+        4828631
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0034",
+        "scifact_0371"
+      ],
+      "evidence_doc_ids": [
+        36444198
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0036",
+        "scifact_0046",
+        "scifact_0087",
+        "scifact_0261",
+        "scifact_0366",
+        "scifact_0370"
+      ],
+      "evidence_doc_ids": [
+        33370,
+        38355793
+      ],
+      "n_clean": 3,
+      "n_false": 3
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0040"
+      ],
+      "evidence_doc_ids": [
+        6493422
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0045",
+        "scifact_0066"
+      ],
+      "evidence_doc_ids": [
+        21295300
+      ],
+      "n_clean": 2,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0056",
+        "scifact_0162"
+      ],
+      "evidence_doc_ids": [
+        24142891
+      ],
+      "n_clean": 2,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0059"
+      ],
+      "evidence_doc_ids": [
+        7098463
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0062"
+      ],
+      "evidence_doc_ids": [
+        5099266
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0074",
+        "scifact_0334"
+      ],
+      "evidence_doc_ids": [
+        37204802
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0078"
+      ],
+      "evidence_doc_ids": [
+        2617858
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0079"
+      ],
+      "evidence_doc_ids": [
+        4928057
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0080",
+        "scifact_0210"
+      ],
+      "evidence_doc_ids": [
+        5884524
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0086"
+      ],
+      "evidence_doc_ids": [
+        9433958
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0091",
+        "scifact_0184",
+        "scifact_0193"
+      ],
+      "evidence_doc_ids": [
+        45638119
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0116",
+        "scifact_0304"
+      ],
+      "evidence_doc_ids": [
+        11899391,
+        13923140,
+        13940200
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0122"
+      ],
+      "evidence_doc_ids": [
+        13794374
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0133",
+        "scifact_0134",
+        "scifact_0253"
+      ],
+      "evidence_doc_ids": [
+        4547102
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0135",
+        "scifact_0212"
+      ],
+      "evidence_doc_ids": [
+        6710713
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0143"
+      ],
+      "evidence_doc_ids": [
+        9505402
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0152",
+        "scifact_0313"
+      ],
+      "evidence_doc_ids": [
+        2488880
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0156",
+        "scifact_0310"
+      ],
+      "evidence_doc_ids": [
+        2425364
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0161"
+      ],
+      "evidence_doc_ids": [
+        17671145
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0165"
+      ],
+      "evidence_doc_ids": [
+        5573975
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0175"
+      ],
+      "evidence_doc_ids": [
+        52873726
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0179",
+        "scifact_0225",
+        "scifact_0291"
+      ],
+      "evidence_doc_ids": [
+        12258338
+      ],
+      "n_clean": 1,
+      "n_false": 2
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0181"
+      ],
+      "evidence_doc_ids": [
+        12643937
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0183"
+      ],
+      "evidence_doc_ids": [
+        1522647
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0189"
+      ],
+      "evidence_doc_ids": [
+        23895668
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0190",
+        "scifact_0218"
+      ],
+      "evidence_doc_ids": [
+        20333864
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0192"
+      ],
+      "evidence_doc_ids": [
+        8190282
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0195"
+      ],
+      "evidence_doc_ids": [
+        17997584
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0198"
+      ],
+      "evidence_doc_ids": [
+        13900610
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0228"
+      ],
+      "evidence_doc_ids": [
+        12631697
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0231"
+      ],
+      "evidence_doc_ids": [
+        5172048
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0245"
+      ],
+      "evidence_doc_ids": [
+        6227220
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0281"
+      ],
+      "evidence_doc_ids": [
+        3874000
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0282",
+        "scifact_0364"
+      ],
+      "evidence_doc_ids": [
+        12670680
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0283"
+      ],
+      "evidence_doc_ids": [
+        21003930
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0284"
+      ],
+      "evidence_doc_ids": [
+        4506414
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0285"
+      ],
+      "evidence_doc_ids": [
+        5558754
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0293"
+      ],
+      "evidence_doc_ids": [
+        18340282
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0311"
+      ],
+      "evidence_doc_ids": [
+        3578380
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0322",
+        "scifact_0349"
+      ],
+      "evidence_doc_ids": [
+        9638032
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0335"
+      ],
+      "evidence_doc_ids": [
+        19688024
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0338"
+      ],
+      "evidence_doc_ids": [
+        22544171
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0342"
+      ],
+      "evidence_doc_ids": [
+        22194407,
+        24241932
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0367"
+      ],
+      "evidence_doc_ids": [
+        17421851
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0374"
+      ],
+      "evidence_doc_ids": [
+        28369117
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 1,
+      "item_ids": [
+        "scifact_0376"
+      ],
+      "evidence_doc_ids": [
+        49556906
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0003"
+      ],
+      "evidence_doc_ids": [
+        39264456
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0006",
+        "scifact_0216"
+      ],
+      "evidence_doc_ids": [
+        4388470
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0009",
+        "scifact_0041",
+        "scifact_0084",
+        "scifact_0221",
+        "scifact_0320"
+      ],
+      "evidence_doc_ids": [
+        6309659
+      ],
+      "n_clean": 3,
+      "n_false": 2
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0020",
+        "scifact_0220"
+      ],
+      "evidence_doc_ids": [
+        23349986
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0023"
+      ],
+      "evidence_doc_ids": [
+        22080671
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0027",
+        "scifact_0158"
+      ],
+      "evidence_doc_ids": [
+        20033112
+      ],
+      "n_clean": 2,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0028",
+        "scifact_0151"
+      ],
+      "evidence_doc_ids": [
+        1550937
+      ],
+      "n_clean": 2,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0033",
+        "scifact_0191"
+      ],
+      "evidence_doc_ids": [
+        11902109
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0038"
+      ],
+      "evidence_doc_ids": [
+        11659421
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0039",
+        "scifact_0203"
+      ],
+      "evidence_doc_ids": [
+        791050
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0043"
+      ],
+      "evidence_doc_ids": [
+        12824568
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0044"
+      ],
+      "evidence_doc_ids": [
+        2462673
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0048"
+      ],
+      "evidence_doc_ids": [
+        4319174
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0060",
+        "scifact_0241"
+      ],
+      "evidence_doc_ids": [
+        25641414
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0064",
+        "scifact_0353"
+      ],
+      "evidence_doc_ids": [
+        3430789
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0068"
+      ],
+      "evidence_doc_ids": [
+        10165258
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0069"
+      ],
+      "evidence_doc_ids": [
+        17814815
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0072"
+      ],
+      "evidence_doc_ids": [
+        5531479
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0081",
+        "scifact_0248",
+        "scifact_0333"
+      ],
+      "evidence_doc_ids": [
+        13734012
+      ],
+      "n_clean": 1,
+      "n_false": 2
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0092"
+      ],
+      "evidence_doc_ids": [
+        2014909
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0096"
+      ],
+      "evidence_doc_ids": [
+        16355392
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0097"
+      ],
+      "evidence_doc_ids": [
+        15058155,
+        15488881
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0104"
+      ],
+      "evidence_doc_ids": [
+        19800147
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0118"
+      ],
+      "evidence_doc_ids": [
+        10991183
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0119",
+        "scifact_0337",
+        "scifact_0362"
+      ],
+      "evidence_doc_ids": [
+        37549932
+      ],
+      "n_clean": 1,
+      "n_false": 2
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0120"
+      ],
+      "evidence_doc_ids": [
+        2831620
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0123",
+        "scifact_0146",
+        "scifact_0226"
+      ],
+      "evidence_doc_ids": [
+        18174210
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0130"
+      ],
+      "evidence_doc_ids": [
+        5476778
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0136",
+        "scifact_0358"
+      ],
+      "evidence_doc_ids": [
+        13905670
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0157",
+        "scifact_0369"
+      ],
+      "evidence_doc_ids": [
+        4162857
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0168",
+        "scifact_0297"
+      ],
+      "evidence_doc_ids": [
+        21009874
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0176"
+      ],
+      "evidence_doc_ids": [
+        6372244
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0182"
+      ],
+      "evidence_doc_ids": [
+        4347374
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0202"
+      ],
+      "evidence_doc_ids": [
+        3654468
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0214"
+      ],
+      "evidence_doc_ids": [
+        26016929
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0217"
+      ],
+      "evidence_doc_ids": [
+        12428497
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0230"
+      ],
+      "evidence_doc_ids": [
+        14682243
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0237"
+      ],
+      "evidence_doc_ids": [
+        26064662
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0239"
+      ],
+      "evidence_doc_ids": [
+        16390264
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0242"
+      ],
+      "evidence_doc_ids": [
+        11291348
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0247"
+      ],
+      "evidence_doc_ids": [
+        2095573
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0250"
+      ],
+      "evidence_doc_ids": [
+        5151024,
+        25515907
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0271"
+      ],
+      "evidence_doc_ids": [
+        19675911
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0272"
+      ],
+      "evidence_doc_ids": [
+        306006
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0290",
+        "scifact_0325"
+      ],
+      "evidence_doc_ids": [
+        24922825
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0299"
+      ],
+      "evidence_doc_ids": [
+        12991445
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0317"
+      ],
+      "evidence_doc_ids": [
+        13770184
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0327"
+      ],
+      "evidence_doc_ids": [
+        15663829
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0331",
+        "scifact_0372"
+      ],
+      "evidence_doc_ids": [
+        1568684
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0339"
+      ],
+      "evidence_doc_ids": [
+        3944632
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0341"
+      ],
+      "evidence_doc_ids": [
+        25148216
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0361"
+      ],
+      "evidence_doc_ids": [
+        8551160
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 2,
+      "item_ids": [
+        "scifact_0378"
+      ],
+      "evidence_doc_ids": [
+        1471041
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0005"
+      ],
+      "evidence_doc_ids": [
+        13763195
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0008",
+        "scifact_0011"
+      ],
+      "evidence_doc_ids": [
+        26851674
+      ],
+      "n_clean": 2,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0015"
+      ],
+      "evidence_doc_ids": [
+        9394119
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0031"
+      ],
+      "evidence_doc_ids": [
+        23460562
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0032"
+      ],
+      "evidence_doc_ids": [
+        12885341
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0035"
+      ],
+      "evidence_doc_ids": [
+        22442133
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0037",
+        "scifact_0063",
+        "scifact_0148",
+        "scifact_0240",
+        "scifact_0256"
+      ],
+      "evidence_doc_ids": [
+        9315213
+      ],
+      "n_clean": 3,
+      "n_false": 2
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0042",
+        "scifact_0251",
+        "scifact_0305"
+      ],
+      "evidence_doc_ids": [
+        11254556
+      ],
+      "n_clean": 1,
+      "n_false": 2
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0049",
+        "scifact_0174",
+        "scifact_0255"
+      ],
+      "evidence_doc_ids": [
+        3355397
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0050"
+      ],
+      "evidence_doc_ids": [
+        14376683
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0055",
+        "scifact_0159",
+        "scifact_0377"
+      ],
+      "evidence_doc_ids": [
+        7370282
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0058",
+        "scifact_0276"
+      ],
+      "evidence_doc_ids": [
+        5323845,
+        13907928,
+        18997216
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0083"
+      ],
+      "evidence_doc_ids": [
+        6828370
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0088"
+      ],
+      "evidence_doc_ids": [
+        20231138
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0093",
+        "scifact_0259"
+      ],
+      "evidence_doc_ids": [
+        10582939
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0107"
+      ],
+      "evidence_doc_ids": [
+        4961038,
+        14241418
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0110"
+      ],
+      "evidence_doc_ids": [
+        12040627
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0111",
+        "scifact_0296"
+      ],
+      "evidence_doc_ids": [
+        12486491
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0115"
+      ],
+      "evidence_doc_ids": [
+        5468807
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0121",
+        "scifact_0306"
+      ],
+      "evidence_doc_ids": [
+        6477536
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0124",
+        "scifact_0373"
+      ],
+      "evidence_doc_ids": [
+        6325527
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0132"
+      ],
+      "evidence_doc_ids": [
+        123859
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0137"
+      ],
+      "evidence_doc_ids": [
+        11369420
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0144",
+        "scifact_0223"
+      ],
+      "evidence_doc_ids": [
+        33872649
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0147"
+      ],
+      "evidence_doc_ids": [
+        13509809
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0153"
+      ],
+      "evidence_doc_ids": [
+        6766459
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0160"
+      ],
+      "evidence_doc_ids": [
+        14079881
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0163",
+        "scifact_0265",
+        "scifact_0363"
+      ],
+      "evidence_doc_ids": [
+        19005293
+      ],
+      "n_clean": 1,
+      "n_false": 2
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0164"
+      ],
+      "evidence_doc_ids": [
+        32159283
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0171",
+        "scifact_0268"
+      ],
+      "evidence_doc_ids": [
+        1982286
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0172",
+        "scifact_0336"
+      ],
+      "evidence_doc_ids": [
+        27768226
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0177",
+        "scifact_0357"
+      ],
+      "evidence_doc_ids": [
+        15493354
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0188"
+      ],
+      "evidence_doc_ids": [
+        13910150
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0194"
+      ],
+      "evidence_doc_ids": [
+        13001323
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0201",
+        "scifact_0235"
+      ],
+      "evidence_doc_ids": [
+        13497630
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0204"
+      ],
+      "evidence_doc_ids": [
+        31460499
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0208"
+      ],
+      "evidence_doc_ids": [
+        9558539
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0209"
+      ],
+      "evidence_doc_ids": [
+        22038539
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0215"
+      ],
+      "evidence_doc_ids": [
+        28937856
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0224"
+      ],
+      "evidence_doc_ids": [
+        18956141
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0234"
+      ],
+      "evidence_doc_ids": [
+        14606752
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0236"
+      ],
+      "evidence_doc_ids": [
+        24338780
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0249"
+      ],
+      "evidence_doc_ids": [
+        9745001
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0252"
+      ],
+      "evidence_doc_ids": [
+        7662395
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0288"
+      ],
+      "evidence_doc_ids": [
+        16787954
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0298"
+      ],
+      "evidence_doc_ids": [
+        17077004
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0300",
+        "scifact_0368"
+      ],
+      "evidence_doc_ids": [
+        16056514
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0309"
+      ],
+      "evidence_doc_ids": [
+        13230773
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0328"
+      ],
+      "evidence_doc_ids": [
+        20418809
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0329"
+      ],
+      "evidence_doc_ids": [
+        464511,
+        12804937
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0344"
+      ],
+      "evidence_doc_ids": [
+        43334921
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 3,
+      "item_ids": [
+        "scifact_0348"
+      ],
+      "evidence_doc_ids": [
+        6157837
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0002"
+      ],
+      "evidence_doc_ids": [
+        18231807
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0004",
+        "scifact_0065",
+        "scifact_0266"
+      ],
+      "evidence_doc_ids": [
+        5824985
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0012",
+        "scifact_0347"
+      ],
+      "evidence_doc_ids": [
+        5691302
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0014"
+      ],
+      "evidence_doc_ids": [
+        4421578
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0016",
+        "scifact_0150",
+        "scifact_0244",
+        "scifact_0351"
+      ],
+      "evidence_doc_ids": [
+        22180793
+      ],
+      "n_clean": 2,
+      "n_false": 2
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0017"
+      ],
+      "evidence_doc_ids": [
+        1649738
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0024",
+        "scifact_0292"
+      ],
+      "evidence_doc_ids": [
+        29564505
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0025"
+      ],
+      "evidence_doc_ids": [
+        13768432
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0029",
+        "scifact_0071",
+        "scifact_0263"
+      ],
+      "evidence_doc_ids": [
+        301838,
+        2734421,
+        3952288,
+        39128592
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0047"
+      ],
+      "evidence_doc_ids": [
+        5260382
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0053"
+      ],
+      "evidence_doc_ids": [
+        27466734
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0054"
+      ],
+      "evidence_doc_ids": [
+        14340571
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0077",
+        "scifact_0113"
+      ],
+      "evidence_doc_ids": [
+        9764256,
+        27446873,
+        27873158,
+        28617573,
+        46695481
+      ],
+      "n_clean": 2,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0085",
+        "scifact_0101"
+      ],
+      "evidence_doc_ids": [
+        7521113,
+        22406695
+      ],
+      "n_clean": 2,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0089",
+        "scifact_0199",
+        "scifact_0269",
+        "scifact_0375"
+      ],
+      "evidence_doc_ids": [
+        11614737
+      ],
+      "n_clean": 1,
+      "n_false": 3
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0094",
+        "scifact_0352"
+      ],
+      "evidence_doc_ids": [
+        15319019
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0095"
+      ],
+      "evidence_doc_ids": [
+        380526
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0098"
+      ],
+      "evidence_doc_ids": [
+        22500262
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0099",
+        "scifact_0229"
+      ],
+      "evidence_doc_ids": [
+        3898784
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0105"
+      ],
+      "evidence_doc_ids": [
+        17741440
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0106",
+        "scifact_0257"
+      ],
+      "evidence_doc_ids": [
+        10071552
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0112",
+        "scifact_0254"
+      ],
+      "evidence_doc_ids": [
+        8426046
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0125"
+      ],
+      "evidence_doc_ids": [
+        24341590
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0127",
+        "scifact_0213"
+      ],
+      "evidence_doc_ids": [
+        19912367
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0131"
+      ],
+      "evidence_doc_ids": [
+        6144337
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0140"
+      ],
+      "evidence_doc_ids": [
+        1834762
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0142",
+        "scifact_0380"
+      ],
+      "evidence_doc_ids": [
+        2212067
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0145",
+        "scifact_0330"
+      ],
+      "evidence_doc_ids": [
+        17755060
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0155"
+      ],
+      "evidence_doc_ids": [
+        20381484
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0167"
+      ],
+      "evidence_doc_ids": [
+        3475317
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0170"
+      ],
+      "evidence_doc_ids": [
+        6277638
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0173"
+      ],
+      "evidence_doc_ids": [
+        1122279,
+        10697096
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0185"
+      ],
+      "evidence_doc_ids": [
+        9955779
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0196"
+      ],
+      "evidence_doc_ids": [
+        15041758
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0197",
+        "scifact_0200"
+      ],
+      "evidence_doc_ids": [
+        7552215
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0222",
+        "scifact_0316"
+      ],
+      "evidence_doc_ids": [
+        4200695
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0227"
+      ],
+      "evidence_doc_ids": [
+        4740447
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0267"
+      ],
+      "evidence_doc_ids": [
+        4883040
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0270"
+      ],
+      "evidence_doc_ids": [
+        19878070
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0278"
+      ],
+      "evidence_doc_ids": [
+        13843341
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0279"
+      ],
+      "evidence_doc_ids": [
+        13023410
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0280"
+      ],
+      "evidence_doc_ids": [
+        5289038
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0286"
+      ],
+      "evidence_doc_ids": [
+        5256564
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0287"
+      ],
+      "evidence_doc_ids": [
+        15476777
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0302"
+      ],
+      "evidence_doc_ids": [
+        1642727
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0303"
+      ],
+      "evidence_doc_ids": [
+        1974176
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0307"
+      ],
+      "evidence_doc_ids": [
+        17587795
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0314"
+      ],
+      "evidence_doc_ids": [
+        39281140
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0319"
+      ],
+      "evidence_doc_ids": [
+        16284655
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0326"
+      ],
+      "evidence_doc_ids": [
+        1456068
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0356"
+      ],
+      "evidence_doc_ids": [
+        19736671
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0365"
+      ],
+      "evidence_doc_ids": [
+        1686997
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 4,
+      "item_ids": [
+        "scifact_0379"
+      ],
+      "evidence_doc_ids": [
+        14803797
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0007",
+        "scifact_0149",
+        "scifact_0262",
+        "scifact_0343"
+      ],
+      "evidence_doc_ids": [
+        16322674,
+        17450673,
+        23557241,
+        27123743
+      ],
+      "n_clean": 2,
+      "n_false": 2
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0013"
+      ],
+      "evidence_doc_ids": [
+        16280642
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0018",
+        "scifact_0246"
+      ],
+      "evidence_doc_ids": [
+        24088502
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0019"
+      ],
+      "evidence_doc_ids": [
+        14437255
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0022"
+      ],
+      "evidence_doc_ids": [
+        12580014
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0026"
+      ],
+      "evidence_doc_ids": [
+        25001628
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0051"
+      ],
+      "evidence_doc_ids": [
+        13956305
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0052"
+      ],
+      "evidence_doc_ids": [
+        12685434
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0057",
+        "scifact_0359"
+      ],
+      "evidence_doc_ids": [
+        27099731
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0061"
+      ],
+      "evidence_doc_ids": [
+        18678095
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0067",
+        "scifact_0354"
+      ],
+      "evidence_doc_ids": [
+        16066726
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0070"
+      ],
+      "evidence_doc_ids": [
+        14717500
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0073",
+        "scifact_0114",
+        "scifact_0308"
+      ],
+      "evidence_doc_ids": [
+        12584053
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0075"
+      ],
+      "evidence_doc_ids": [
+        12440953
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0076"
+      ],
+      "evidence_doc_ids": [
+        52874170
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0082"
+      ],
+      "evidence_doc_ids": [
+        1469751
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0090",
+        "scifact_0141",
+        "scifact_0232"
+      ],
+      "evidence_doc_ids": [
+        21366394
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0100",
+        "scifact_0169"
+      ],
+      "evidence_doc_ids": [
+        19205437
+      ],
+      "n_clean": 2,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0102",
+        "scifact_0128",
+        "scifact_0321"
+      ],
+      "evidence_doc_ids": [
+        18872233
+      ],
+      "n_clean": 2,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0103",
+        "scifact_0324"
+      ],
+      "evidence_doc_ids": [
+        8148304
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0108"
+      ],
+      "evidence_doc_ids": [
+        15984735
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0109"
+      ],
+      "evidence_doc_ids": [
+        52072815
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0117",
+        "scifact_0207"
+      ],
+      "evidence_doc_ids": [
+        13899137
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0126"
+      ],
+      "evidence_doc_ids": [
+        11328820
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0129",
+        "scifact_0294"
+      ],
+      "evidence_doc_ids": [
+        12810152
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0138",
+        "scifact_0289"
+      ],
+      "evidence_doc_ids": [
+        10984005
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0139"
+      ],
+      "evidence_doc_ids": [
+        935538,
+        4306711,
+        13931771
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0154",
+        "scifact_0332"
+      ],
+      "evidence_doc_ids": [
+        10648422
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0166"
+      ],
+      "evidence_doc_ids": [
+        6490571
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0178"
+      ],
+      "evidence_doc_ids": [
+        6441369
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0180"
+      ],
+      "evidence_doc_ids": [
+        14637235
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0186",
+        "scifact_0273"
+      ],
+      "evidence_doc_ids": [
+        17628888
+      ],
+      "n_clean": 1,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0187"
+      ],
+      "evidence_doc_ids": [
+        8246922
+      ],
+      "n_clean": 1,
+      "n_false": 0
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0205"
+      ],
+      "evidence_doc_ids": [
+        2867345
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0206",
+        "scifact_0211"
+      ],
+      "evidence_doc_ids": [
+        16472469
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0219",
+        "scifact_0275",
+        "scifact_0301"
+      ],
+      "evidence_doc_ids": [
+        4709641
+      ],
+      "n_clean": 0,
+      "n_false": 3
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0238"
+      ],
+      "evidence_doc_ids": [
+        20888849
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0243"
+      ],
+      "evidence_doc_ids": [
+        27910499
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0258"
+      ],
+      "evidence_doc_ids": [
+        7821634
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0260",
+        "scifact_0355"
+      ],
+      "evidence_doc_ids": [
+        12009265
+      ],
+      "n_clean": 0,
+      "n_false": 2
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0264"
+      ],
+      "evidence_doc_ids": [
+        19799455
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0274"
+      ],
+      "evidence_doc_ids": [
+        2052720
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0277"
+      ],
+      "evidence_doc_ids": [
+        10883736
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0295"
+      ],
+      "evidence_doc_ids": [
+        5912283
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0312"
+      ],
+      "evidence_doc_ids": [
+        12827098
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0315"
+      ],
+      "evidence_doc_ids": [
+        9505448
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0318"
+      ],
+      "evidence_doc_ids": [
+        7209559
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0323"
+      ],
+      "evidence_doc_ids": [
+        17930286
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0340"
+      ],
+      "evidence_doc_ids": [
+        15928989
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0345"
+      ],
+      "evidence_doc_ids": [
+        15048300
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0346"
+      ],
+      "evidence_doc_ids": [
+        37480103
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0350"
+      ],
+      "evidence_doc_ids": [
+        1180972,
+        3315558,
+        19307912,
+        27393799,
+        29025270
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    },
+    {
+      "fold": 5,
+      "item_ids": [
+        "scifact_0360"
+      ],
+      "evidence_doc_ids": [
+        25742130
+      ],
+      "n_clean": 0,
+      "n_false": 1
+    }
+  ],
+  "item_to_fold": {
+    "scifact_0001": 1,
+    "scifact_0010": 1,
+    "scifact_0021": 1,
+    "scifact_0030": 1,
+    "scifact_0034": 1,
+    "scifact_0036": 1,
+    "scifact_0040": 1,
+    "scifact_0045": 1,
+    "scifact_0046": 1,
+    "scifact_0056": 1,
+    "scifact_0059": 1,
+    "scifact_0062": 1,
+    "scifact_0066": 1,
+    "scifact_0074": 1,
+    "scifact_0078": 1,
+    "scifact_0079": 1,
+    "scifact_0080": 1,
+    "scifact_0086": 1,
+    "scifact_0087": 1,
+    "scifact_0091": 1,
+    "scifact_0116": 1,
+    "scifact_0122": 1,
+    "scifact_0133": 1,
+    "scifact_0134": 1,
+    "scifact_0135": 1,
+    "scifact_0143": 1,
+    "scifact_0152": 1,
+    "scifact_0156": 1,
+    "scifact_0161": 1,
+    "scifact_0162": 1,
+    "scifact_0165": 1,
+    "scifact_0175": 1,
+    "scifact_0179": 1,
+    "scifact_0181": 1,
+    "scifact_0183": 1,
+    "scifact_0184": 1,
+    "scifact_0189": 1,
+    "scifact_0190": 1,
+    "scifact_0192": 1,
+    "scifact_0193": 1,
+    "scifact_0195": 1,
+    "scifact_0198": 1,
+    "scifact_0210": 1,
+    "scifact_0212": 1,
+    "scifact_0218": 1,
+    "scifact_0225": 1,
+    "scifact_0228": 1,
+    "scifact_0231": 1,
+    "scifact_0233": 1,
+    "scifact_0245": 1,
+    "scifact_0253": 1,
+    "scifact_0261": 1,
+    "scifact_0281": 1,
+    "scifact_0282": 1,
+    "scifact_0283": 1,
+    "scifact_0284": 1,
+    "scifact_0285": 1,
+    "scifact_0291": 1,
+    "scifact_0293": 1,
+    "scifact_0304": 1,
+    "scifact_0310": 1,
+    "scifact_0311": 1,
+    "scifact_0313": 1,
+    "scifact_0322": 1,
+    "scifact_0334": 1,
+    "scifact_0335": 1,
+    "scifact_0338": 1,
+    "scifact_0342": 1,
+    "scifact_0349": 1,
+    "scifact_0364": 1,
+    "scifact_0366": 1,
+    "scifact_0367": 1,
+    "scifact_0370": 1,
+    "scifact_0371": 1,
+    "scifact_0374": 1,
+    "scifact_0376": 1,
+    "scifact_0003": 2,
+    "scifact_0006": 2,
+    "scifact_0009": 2,
+    "scifact_0020": 2,
+    "scifact_0023": 2,
+    "scifact_0027": 2,
+    "scifact_0028": 2,
+    "scifact_0033": 2,
+    "scifact_0038": 2,
+    "scifact_0039": 2,
+    "scifact_0041": 2,
+    "scifact_0043": 2,
+    "scifact_0044": 2,
+    "scifact_0048": 2,
+    "scifact_0060": 2,
+    "scifact_0064": 2,
+    "scifact_0068": 2,
+    "scifact_0069": 2,
+    "scifact_0072": 2,
+    "scifact_0081": 2,
+    "scifact_0084": 2,
+    "scifact_0092": 2,
+    "scifact_0096": 2,
+    "scifact_0097": 2,
+    "scifact_0104": 2,
+    "scifact_0118": 2,
+    "scifact_0119": 2,
+    "scifact_0120": 2,
+    "scifact_0123": 2,
+    "scifact_0130": 2,
+    "scifact_0136": 2,
+    "scifact_0146": 2,
+    "scifact_0151": 2,
+    "scifact_0157": 2,
+    "scifact_0158": 2,
+    "scifact_0168": 2,
+    "scifact_0176": 2,
+    "scifact_0182": 2,
+    "scifact_0191": 2,
+    "scifact_0202": 2,
+    "scifact_0203": 2,
+    "scifact_0214": 2,
+    "scifact_0216": 2,
+    "scifact_0217": 2,
+    "scifact_0220": 2,
+    "scifact_0221": 2,
+    "scifact_0226": 2,
+    "scifact_0230": 2,
+    "scifact_0237": 2,
+    "scifact_0239": 2,
+    "scifact_0241": 2,
+    "scifact_0242": 2,
+    "scifact_0247": 2,
+    "scifact_0248": 2,
+    "scifact_0250": 2,
+    "scifact_0271": 2,
+    "scifact_0272": 2,
+    "scifact_0290": 2,
+    "scifact_0297": 2,
+    "scifact_0299": 2,
+    "scifact_0317": 2,
+    "scifact_0320": 2,
+    "scifact_0325": 2,
+    "scifact_0327": 2,
+    "scifact_0331": 2,
+    "scifact_0333": 2,
+    "scifact_0337": 2,
+    "scifact_0339": 2,
+    "scifact_0341": 2,
+    "scifact_0353": 2,
+    "scifact_0358": 2,
+    "scifact_0361": 2,
+    "scifact_0362": 2,
+    "scifact_0369": 2,
+    "scifact_0372": 2,
+    "scifact_0378": 2,
+    "scifact_0005": 3,
+    "scifact_0008": 3,
+    "scifact_0011": 3,
+    "scifact_0015": 3,
+    "scifact_0031": 3,
+    "scifact_0032": 3,
+    "scifact_0035": 3,
+    "scifact_0037": 3,
+    "scifact_0042": 3,
+    "scifact_0049": 3,
+    "scifact_0050": 3,
+    "scifact_0055": 3,
+    "scifact_0058": 3,
+    "scifact_0063": 3,
+    "scifact_0083": 3,
+    "scifact_0088": 3,
+    "scifact_0093": 3,
+    "scifact_0107": 3,
+    "scifact_0110": 3,
+    "scifact_0111": 3,
+    "scifact_0115": 3,
+    "scifact_0121": 3,
+    "scifact_0124": 3,
+    "scifact_0132": 3,
+    "scifact_0137": 3,
+    "scifact_0144": 3,
+    "scifact_0147": 3,
+    "scifact_0148": 3,
+    "scifact_0153": 3,
+    "scifact_0159": 3,
+    "scifact_0160": 3,
+    "scifact_0163": 3,
+    "scifact_0164": 3,
+    "scifact_0171": 3,
+    "scifact_0172": 3,
+    "scifact_0174": 3,
+    "scifact_0177": 3,
+    "scifact_0188": 3,
+    "scifact_0194": 3,
+    "scifact_0201": 3,
+    "scifact_0204": 3,
+    "scifact_0208": 3,
+    "scifact_0209": 3,
+    "scifact_0215": 3,
+    "scifact_0223": 3,
+    "scifact_0224": 3,
+    "scifact_0234": 3,
+    "scifact_0235": 3,
+    "scifact_0236": 3,
+    "scifact_0240": 3,
+    "scifact_0249": 3,
+    "scifact_0251": 3,
+    "scifact_0252": 3,
+    "scifact_0255": 3,
+    "scifact_0256": 3,
+    "scifact_0259": 3,
+    "scifact_0265": 3,
+    "scifact_0268": 3,
+    "scifact_0276": 3,
+    "scifact_0288": 3,
+    "scifact_0296": 3,
+    "scifact_0298": 3,
+    "scifact_0300": 3,
+    "scifact_0305": 3,
+    "scifact_0306": 3,
+    "scifact_0309": 3,
+    "scifact_0328": 3,
+    "scifact_0329": 3,
+    "scifact_0336": 3,
+    "scifact_0344": 3,
+    "scifact_0348": 3,
+    "scifact_0357": 3,
+    "scifact_0363": 3,
+    "scifact_0368": 3,
+    "scifact_0373": 3,
+    "scifact_0377": 3,
+    "scifact_0002": 4,
+    "scifact_0004": 4,
+    "scifact_0012": 4,
+    "scifact_0014": 4,
+    "scifact_0016": 4,
+    "scifact_0017": 4,
+    "scifact_0024": 4,
+    "scifact_0025": 4,
+    "scifact_0029": 4,
+    "scifact_0047": 4,
+    "scifact_0053": 4,
+    "scifact_0054": 4,
+    "scifact_0065": 4,
+    "scifact_0071": 4,
+    "scifact_0077": 4,
+    "scifact_0085": 4,
+    "scifact_0089": 4,
+    "scifact_0094": 4,
+    "scifact_0095": 4,
+    "scifact_0098": 4,
+    "scifact_0099": 4,
+    "scifact_0101": 4,
+    "scifact_0105": 4,
+    "scifact_0106": 4,
+    "scifact_0112": 4,
+    "scifact_0113": 4,
+    "scifact_0125": 4,
+    "scifact_0127": 4,
+    "scifact_0131": 4,
+    "scifact_0140": 4,
+    "scifact_0142": 4,
+    "scifact_0145": 4,
+    "scifact_0150": 4,
+    "scifact_0155": 4,
+    "scifact_0167": 4,
+    "scifact_0170": 4,
+    "scifact_0173": 4,
+    "scifact_0185": 4,
+    "scifact_0196": 4,
+    "scifact_0197": 4,
+    "scifact_0199": 4,
+    "scifact_0200": 4,
+    "scifact_0213": 4,
+    "scifact_0222": 4,
+    "scifact_0227": 4,
+    "scifact_0229": 4,
+    "scifact_0244": 4,
+    "scifact_0254": 4,
+    "scifact_0257": 4,
+    "scifact_0263": 4,
+    "scifact_0266": 4,
+    "scifact_0267": 4,
+    "scifact_0269": 4,
+    "scifact_0270": 4,
+    "scifact_0278": 4,
+    "scifact_0279": 4,
+    "scifact_0280": 4,
+    "scifact_0286": 4,
+    "scifact_0287": 4,
+    "scifact_0292": 4,
+    "scifact_0302": 4,
+    "scifact_0303": 4,
+    "scifact_0307": 4,
+    "scifact_0314": 4,
+    "scifact_0316": 4,
+    "scifact_0319": 4,
+    "scifact_0326": 4,
+    "scifact_0330": 4,
+    "scifact_0347": 4,
+    "scifact_0351": 4,
+    "scifact_0352": 4,
+    "scifact_0356": 4,
+    "scifact_0365": 4,
+    "scifact_0375": 4,
+    "scifact_0379": 4,
+    "scifact_0380": 4,
+    "scifact_0007": 5,
+    "scifact_0013": 5,
+    "scifact_0018": 5,
+    "scifact_0019": 5,
+    "scifact_0022": 5,
+    "scifact_0026": 5,
+    "scifact_0051": 5,
+    "scifact_0052": 5,
+    "scifact_0057": 5,
+    "scifact_0061": 5,
+    "scifact_0067": 5,
+    "scifact_0070": 5,
+    "scifact_0073": 5,
+    "scifact_0075": 5,
+    "scifact_0076": 5,
+    "scifact_0082": 5,
+    "scifact_0090": 5,
+    "scifact_0100": 5,
+    "scifact_0102": 5,
+    "scifact_0103": 5,
+    "scifact_0108": 5,
+    "scifact_0109": 5,
+    "scifact_0114": 5,
+    "scifact_0117": 5,
+    "scifact_0126": 5,
+    "scifact_0128": 5,
+    "scifact_0129": 5,
+    "scifact_0138": 5,
+    "scifact_0139": 5,
+    "scifact_0141": 5,
+    "scifact_0149": 5,
+    "scifact_0154": 5,
+    "scifact_0166": 5,
+    "scifact_0169": 5,
+    "scifact_0178": 5,
+    "scifact_0180": 5,
+    "scifact_0186": 5,
+    "scifact_0187": 5,
+    "scifact_0205": 5,
+    "scifact_0206": 5,
+    "scifact_0207": 5,
+    "scifact_0211": 5,
+    "scifact_0219": 5,
+    "scifact_0232": 5,
+    "scifact_0238": 5,
+    "scifact_0243": 5,
+    "scifact_0246": 5,
+    "scifact_0258": 5,
+    "scifact_0260": 5,
+    "scifact_0262": 5,
+    "scifact_0264": 5,
+    "scifact_0273": 5,
+    "scifact_0274": 5,
+    "scifact_0275": 5,
+    "scifact_0277": 5,
+    "scifact_0289": 5,
+    "scifact_0294": 5,
+    "scifact_0295": 5,
+    "scifact_0301": 5,
+    "scifact_0308": 5,
+    "scifact_0312": 5,
+    "scifact_0315": 5,
+    "scifact_0318": 5,
+    "scifact_0321": 5,
+    "scifact_0323": 5,
+    "scifact_0324": 5,
+    "scifact_0332": 5,
+    "scifact_0340": 5,
+    "scifact_0343": 5,
+    "scifact_0345": 5,
+    "scifact_0346": 5,
+    "scifact_0350": 5,
+    "scifact_0354": 5,
+    "scifact_0355": 5,
+    "scifact_0359": 5,
+    "scifact_0360": 5
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "version": "scifact_second_panel_crossfit_v1",
+  "freeze_date": "2026-07-22",
+  "status": "frozen_before_second_panel_scifact_calls",
+  "model_calls_started_at_freeze": false,
+  "repository_head_at_freeze": "cf38e61cf9ed762f5e6de4674a42d872f61ea69d",
+  "question": "Does the unchanged JuryProbe rule measure panel-specific error dependence on fixed SciFact claims, and what paired benefit does Ground-All-RF-Accepts obtain for one pre-specified second panel?",
+  "fixed_data": {
+    "claims": {
+      "path": "data/scifact_natural_n190.jsonl",
+      "sha256": "1ca20b16629f66bca47f3f6c0ac5767d49601d8fc748ca7405efd93c4ec7d2ca",
+      "n_clean": 190,
+      "n_false": 190
+    },
+    "references": {
+      "path": "data/scifact_retrieval_refs.jsonl",
+      "sha256": "ee2f31e5c7de8c840fa19705b5de0f0179a91b2b24b377b99417e594b59279cb",
+      "primary_condition": "benchmark full abstract containing the annotated evidence"
+    }
+  },
+  "panels": {
+    "original": [
+      "meta-llama/llama-3.1-8b-instruct",
+      "qwen/qwen-2.5-7b-instruct",
+      "google/gemma-3-12b-it"
+    ],
+    "second": [
+      "meta-llama/llama-3.3-70b-instruct",
+      "qwen/qwen-2.5-72b-instruct",
+      "google/gemma-2-27b-it"
+    ]
+  },
+  "panel_selection": {
+    "number_of_second_panels": 1,
+    "substitution_after_calls": false,
+    "prior_specification_script": {
+      "path": "scripts/evaluate_strong_panel_low_risk.py",
+      "sha256": "d093ddbd6183a7cf1c098d7d7d7066c840f5613c04a2fc0e476451e971b03d8a"
+    },
+    "note": "The exact second-panel list predates this SciFact protocol and was not selected using SciFact outputs."
+  },
+  "cross_fit": {
+    "folds": 5,
+    "grouping": "connected components over shared SciFact evidence-document IDs",
+    "seed": 20260722,
+    "calibration_per_fold": {
+      "clean": 152,
+      "false": 152
+    },
+    "deployment_per_fold": {
+      "clean": 38,
+      "false": 38
+    },
+    "fold_artifact": {
+      "path": "frozen/scifact_second_panel_crossfit_v1/folds.json",
+      "sha256": "06bc23bf19dfe9d2da28d85035d579459ed514c8904ca3a31c455fea1d4e33a7",
+      "n_source_groups": 263,
+      "max_group_size": 6
+    }
+  },
+  "risk_rule": {
+    "mean_pairwise_fn_correlation_gt": 0.15,
+    "false_consensus_lift_gt": 1.5,
+    "permutation_p_lt": 0.05,
+    "conjunction": true,
+    "permutations": 3000,
+    "permutation_seed": "fold number"
+  },
+  "formal_policies": [
+    "Reference-Free Majority",
+    "Ground-All-RF-Accepts with benchmark full abstract",
+    "JuryProbe-Routed using the frozen calibration flag"
+  ],
+  "artifacts": {
+    "protocol": {
+      "path": "frozen/scifact_second_panel_crossfit_v1/PROTOCOL.md",
+      "sha256": "d2166c27433e80c4851829ac790b9909d9992ddb905a4677e7202d0fba42e46b"
+    },
+    "fold_builder": {
+      "path": "scripts/build_scifact_grouped_folds.py",
+      "sha256": "417a11041c2a708d4144f5aeb80cf645b2b08cc3e298251947d6587c4e00c5b2"
+    },
+    "evaluator": {
+      "path": "scripts/evaluate_scifact_second_panel_crossfit.py",
+      "sha256": "05d49d3b4013d8603047dc5eaf4a4d19414f0fe80939bd04709cb4c1c554cea6"
+    }
+  },
+  "reporting_constraints": [
+    "Report every fold and the pooled out-of-fold result regardless of outcome.",
+    "Do not introduce a post-hoc non-inferiority margin.",
+    "Do not call a non-flagged fold a safety certificate.",
+    "Do not substitute gold labels for grounded-panel verdicts.",
+    "Abort rather than replace an unavailable second-panel model."
+  ]
+}

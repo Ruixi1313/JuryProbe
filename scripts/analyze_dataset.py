@@ -244,7 +244,10 @@ def main():
     })
     lift = det_perm["lift"]
     p = det_perm["p"]
-    replication_pass = fn_only > 0.15 and lift > 1.5 and p < 0.05
+    # Replication pass: FN correlation + residual lift + perm significance + foil collapse
+    # (not: absolute all-3 FC, which varies by corruption difficulty)
+    foil_collapse = g_c < 0.10  # correlation vanishes when reference provided
+    replication_pass = fn_only > 0.15 and lift > 1.5 and p < 0.05 and foil_collapse
     strong_mechanistic_replication = (
         corr_reduction["reduction"] > 0
         and corr_reduction["p_lower"] < 0.05

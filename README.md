@@ -1,234 +1,116 @@
 # JuryProbe
 
-JuryProbe is a consensus-risk guardrail for reference-free factuality judge
-panels. It tests when agreement among inexpensive LLM judges should be treated
-as reliable evidence, and when high-risk accept decisions should be routed to
-grounded verification with trusted references.
+An empirical consensus-risk diagnostic with calibration-based routing for
+reference-free factuality judge panels.
 
-The project supports the paper:
+Paper: [JuryProbe: An Empirical Consensus-Risk Diagnostic for Routing
+Reference-Free Factuality Judge Panels to Grounded Verification](https://arxiv.org/abs/2608.20607).
 
-**[JuryProbe: An Empirical Consensus-Risk Diagnostic for Routing Reference-Free Factuality Judge Panels to Grounded Verification](https://arxiv.org/abs/2608.20607)**
+JuryProbe measures dependence among false-negative judge errors and excess
+unanimous false acceptance. Its frozen rule activates accept-conditioned
+grounding when FN-only correlation > 0.15, false-consensus lift > 1.5, and
+permutation p < 0.05. In flagged settings, JuryProbe-Routed and
+Ground-All-RF-Accepts are identical: grounding supplies the policy improvement;
+the diagnostic determines whether that policy is activated.
 
-## Overview
+Number was the threshold-development setting. Entity and subsequent families
+were evaluated with the frozen rule. A not-flagged result is not a safety
+certificate, and reliable stand-down on an external benchmark remains unresolved.
+Grounded results are trusted-reference best-case diagnostics or explicitly
+identified retrieved-reference stress tests.
 
-JuryProbe studies a failure mode in model-based factuality evaluation:
-reference-free judge panels can unanimously accept corrupted claims when their
-false-negative errors are correlated. The project measures this risk using:
+## Offline Reproduction
 
-- **FN-only correlation**, which measures dependence among judge failures.
-- **False-consensus lift**, which measures excess unanimous false acceptance
-  relative to an independent-error baseline.
-- **Grounding collapse**, which tests whether the same judge panel stops
-  producing false consensus when trusted references are provided.
-- **JuryProbe-Routed**, a held-out guardrail policy that routes high-risk
-  reference-free majority accepts to grounded verification.
-
-The main confirmatory analyses use audited **Number** and **Entity** corruption
-families. **Attribute** is retained as a replication family, and **Relation**
-was excluded before main judge evaluation because audits identified unstable
-construction artifacts.
-
-## Repository Layout
-
-```text
-JuryProbe/
-├── src/                    # Core judge and correlation utilities
-├── scripts/                # Data construction, judging, analysis, and policy evaluation
-├── docs/                   # Method notes, policy definitions, and table sources
-├── audits/                 # Author audit records for corruption-family construction
-├── frozen/                 # Frozen manifests and audit summaries for reported artifacts
-├── results/                # Tracked summary markdown files only
-├── .env.template           # Local API-key template; copy to .env
-└── requirements.txt
-```
-
-Large or sensitive artifacts are intentionally not tracked:
-
-- `.env` and other local secrets
-- raw FEVER-derived datasets in `data/`
-- raw model outputs and large JSON/JSONL result files in `results/`
-- temporary working directories in `tmp/`
-- submission PDFs/ZIPs and local reference PDFs
-
-## Setup
-
-Create a local environment and install dependencies:
+Use Python 3.10 or later. Cached reproduction uses only the Python standard
+library and requires no API key, model download, or network connection.
+The prepared release includes `reproducibility/cached_inputs.tar.gz` and its
+SHA-256 manifest. If these are absent from a checkout, it is not the complete
+reproduction release; the maintainer instructions below create them.
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+git clone https://github.com/Ruixi1313/JuryProbe.git
+cd JuryProbe
+python3 scripts/reproduce.py --suite core --output-dir /tmp/juryprobe-core-run
+python3 scripts/reproduce.py --suite all --output-dir /tmp/juryprobe-all-run
 ```
 
-Copy the environment template and add your OpenRouter key locally:
+Choose a new output directory each time. The runner verifies source and artifact
+hashes, copies exact inputs into an isolated workspace, disables network access,
+recomputes results, and compares all recorded numeric, boolean, and null fields
+against saved reference outputs. Missing inputs, numerical mismatches, evaluator
+failures, or changes to cached inputs result in a nonzero exit status. Logs,
+regenerated tables, and `reproduction_report.json` go to the isolated workspace.
+This verifies calculations from recorded model verdicts, not that future model
+API calls will return identical responses. Original-run API/token counters are
+excluded from numerical comparison as documented below.
+
+The core suite covers:
+
+- Number, Entity, and Attribute reference-free and grounded diagnostics;
+- ten-split routing and disagreement/random baselines;
+- Ground-All-RF-Accepts and the reference-free contradiction control;
+- seven-family diagnostics and SciFact 95/95 calibration sensitivity;
+- SciFact rationale/full-abstract/BM25 and held-out policy results;
+- conditional utility calculations using measured policy outcomes.
+
+The full suite additionally covers CREAK, grouped SciFact second-panel folds,
+distribution shift and complete-case sensitivity, leave-one-family-out
+calibration, threshold sensitivity, and the earlier Number capability slice.
+Boundary and negative outcomes are included.
 
 ```bash
-cp .env.template .env
+python3 scripts/reproduce.py --verify-only
+python3 -m unittest discover -s tests -v
 ```
 
-The `.env` file is ignored by git. Do not commit real API keys.
+See [scope and conventions](docs/reproducibility.md) for aggregation definitions,
+missing-verdict handling, and limitations.
 
-## Main Workflow
+## Fresh Data and Model Calls
 
-The full project was run as a frozen, staged pipeline. The scripts are kept in
-the repository so the construction and evaluation logic can be inspected and
-rerun locally when the required data and API access are available.
+Data construction and fresh judging are separate workflows: upstream data and
+provider models can change, and new judging incurs API costs. Install
+`requirements.txt` for optional `certifi` support and configure
+`OPENROUTER_API_KEY` locally. Never commit an actual key.
 
-### 1. Build FEVER claim pools
+The original panel is Llama-3.1-8B-Instruct, Qwen-2.5-7B-Instruct, and
+Gemma-3-12B-IT. Prompts, model identifiers, decoding settings, seeds, and cache
+namespaces are in the scripts and protocols. SciFact retrieval uses frozen
+claim-only BM25 references; cached reproduction recomputes recall and verifier
+outcomes from these references. Rebuilding the index separately requires the
+upstream SciFact corpus.
+
+## Maintainer Packaging
+
+From the full research checkout containing the original data and caches:
 
 ```bash
-python scripts/build_fever_claim_pool.py --seed 42
+python3 scripts/build_public_release.py --output-dir /tmp/juryprobe-release
+python3 /tmp/juryprobe-release/scripts/reproduce.py --suite all
 ```
 
-This constructs fixed FEVER-supported claim pools for downstream corruption
-families. Pool construction uses local, pre-specified filters; GPT-4o is not
-used to select the initial pool.
+The builder uses explicit lists in `scripts/reproduction_config.py`, scans
+selected content for common credential formats, preserves input bytes, and
+generates a deterministic source archive beside the release directory.
 
-### 2. Construct corruption-family datasets
+The release contains only reproduction code, methods documentation, selected
+audit/protocol records, tests, licensing/citation metadata, and the frozen-input
+bundle. Each included path is listed in the release manifest.
 
-Representative builders:
+Packaging does not push commits, publish releases, or rewrite Git history.
+Publish only this allowlisted release, not the full research checkout. Files
+removed from a current tree may remain visible in existing Git history.
 
-```bash
-python scripts/build_number_from_pool.py
-python scripts/build_entity_from_pool.py
-python scripts/build_attribute_from_pool.py
-python scripts/build_relation_from_pool.py
-```
+## License and Citation
 
-Number and Entity are the confirmatory families used for the main
-consensus-risk, grounding-collapse, and guardrail-policy evaluations. Attribute
-is used as replication evidence. Relation was explored but excluded from main
-evaluation after audit.
+Original code and associated documentation are covered by the [MIT License](LICENSE),
+copyright (c) 2026 Tianxin Zhou and Ruixi Lin. The paper, datasets, model outputs,
+and third-party materials are excluded from that grant. FEVER-derived excerpts
+retain their [upstream terms](https://fever.ai/download/fever/license.html).
+SciFact and CREAK materials retain their upstream terms; bundling does not
+relicense them under MIT. The optional `certifi` dependency retains its own license.
+The legacy `scripts/build_fever_number_seeds.py` is excluded from the release
+and MIT grant pending upstream provenance clarification.
 
-### 3. Run reference-free and grounded judging
-
-Reference-free judging evaluates each claim without a trusted reference.
-Grounded verification evaluates the same claim with a trusted reference using
-the same judge panel. The relevant judge wrapper is in:
-
-```text
-src/judges.py
-```
-
-The main judge panel consists of:
-
-- Llama-3.1-8B-Instruct
-- Qwen-2.5-7B-Instruct
-- Gemma-3-12B-IT
-
-### 4. Estimate consensus risk
-
-Consensus risk is estimated from corrupted calibration items using FN-only
-correlation, false-consensus lift, and a permutation-test p-value. Core
-utilities are in:
-
-```text
-src/correlation.py
-scripts/analyze_dataset.py
-scripts/analyze_residual.py
-```
-
-### 5. Evaluate JuryProbe-Routed
-
-The held-out policy evaluation separates risk estimation from deployment
-evaluation. Risk is estimated on calibration splits, and policies are evaluated
-on held-out deployment splits.
-
-```bash
-python scripts/evaluate_guardrail_multiseed.py
-```
-
-The evaluated policies include:
-
-- Reference-Free Majority
-- Reference-Free Unanimity
-- Disagreement-Routed
-- Random-Routed
-- JuryProbe-Routed
-- Always Grounded
-
-Tracked summary tables are stored as markdown files under `results/`.
-
-### 6. Robustness checks
-
-Additional checks include threshold sensitivity, grounded specificity,
-random-routing stability, grounded evaluation integrity, Attribute replication,
-and a capability-varied judge-panel slice.
-
-Representative scripts:
-
-```text
-scripts/analyze_guardrail_robustness.py
-scripts/evaluate_low_risk_specificity.py
-scripts/evaluate_strong_judge_slice.py
-scripts/validate_grounded_cache.py
-```
-
-## Frozen Artifacts
-
-The `frozen/` directory records the manifests and audit summaries used to
-support the reported paper results. These files are intended as lightweight,
-reviewable records of what was frozen before downstream evaluation.
-
-The raw datasets and raw model outputs are not included in git by default
-because they are large and may contain cached model responses. The tracked
-markdown summaries in `results/` provide the reported aggregate tables.
-
-## Security Notes
-
-- Real API keys belong only in local `.env` files.
-- `.env`, raw datasets, raw model outputs, and temporary workspaces are ignored.
-- The repository reads `OPENROUTER_API_KEY` from the environment; keys are not
-  hard-coded in source files.
-
-## Minimal Verification
-
-To check that the tracked Python files parse:
-
-```bash
-python3 -m py_compile src/*.py scripts/*.py
-```
-
-## License
-
-The original project code and associated documentation are licensed under the
-[MIT License](LICENSE), copyright (c) 2026 Tianxin Zhou and Ruixi Lin, with the
-following scope exclusions:
-
-- `scripts/build_fever_number_seeds.py` is excluded from this MIT grant pending
-  clarification of the upstream snippet referenced in its source note. No
-  license for that upstream material is asserted here.
-- The paper, datasets, model weights, and model outputs are not covered by this
-  MIT grant.
-- FEVER-derived claims, examples, and audit excerpts, including those embedded
-  in documentation, `audits/`, and `frozen/`, retain their applicable upstream
-  terms. See the [FEVER data license](https://fever.ai/download/fever/license.html),
-  which refers to the applicable Wikipedia article terms and otherwise
-  CC BY-SA 3.0.
-- Third-party software and services retain their own licenses and terms.
-  In particular, the `certifi` dependency is separately licensed under
-  [MPL-2.0](https://github.com/certifi/python-certifi/blob/master/LICENSE).
-
-These exclusions identify materials outside the MIT grant; they do not add
-restrictions to use of the code covered by MIT.
-
-## Citation
-
-If you use JuryProbe in research, please cite the paper:
-
-```bibtex
-@article{zhou2026juryprobe,
-  title = {JuryProbe: An Empirical Consensus-Risk Diagnostic for Routing Reference-Free Factuality Judge Panels to Grounded Verification},
-  author = {Zhou, Tianxin and Lin, Ruixi},
-  journal = {Transactions on Machine Learning Research},
-  year = {2026},
-  eprint = {2608.20607},
-  archivePrefix = {arXiv},
-  primaryClass = {cs.CL},
-  doi = {10.48550/arXiv.2608.20607},
-  url = {https://arxiv.org/abs/2608.20607}
-}
-```
-
-Machine-readable citation metadata is available in [CITATION.cff](CITATION.cff).
-Citation is a scholarly request, not an additional condition of the MIT License.
+Machine-readable paper metadata is in [CITATION.cff](CITATION.cff). Citation is a
+scholarly request, not an additional condition of the MIT License.
